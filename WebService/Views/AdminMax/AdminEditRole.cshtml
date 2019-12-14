@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "AdminEditRole";
+    Layout = "~/Views/Shared/_AdminMaxLayout.cshtml";
+}
+
+
+<div class="col-md-5 grid-form1">
+
+
+    <div class="panel-body">
+        <form role="form" action="~/AdminMax/Change" method="post" class="form-horizontal">
+            <input type="hidden" value="@ViewBag.Account.ID" name="ID" id="ID" />
+            <div class="form-group">
+                <label class="col-md-4 control-label">Quyền hạn</label>
+                <div class="col-md-8">
+                    @if (ViewBag.Account.RoleID == 2)
+                    {
+                        <select name="RoleID" id="RoleID" class="form-control">
+                            <option value="2" selected="selected">User</option>
+                            <option value="1">Quản Lý</option>
+                           
+                        </select>
+                    }
+                    else if (ViewBag.Account.RoleID == 1)
+                    {
+                        <select name="RoleID" id="RoleID" class="form-control">
+                            <option value="2">User</option>
+                            <option value="1" selected="selected">Quản Lý</option>
+                            
+                        </select>
+                    }
+                    else
+                    {
+                        <select name="RoleID" id="RoleID" class="form-control">
+                            <option value="2">User</option>
+                            <option value="1">Quản Lý</option>
+                          
+                        </select>
+                    }
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lưu thay đổi" class="btn btn-primary btn-hover" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+

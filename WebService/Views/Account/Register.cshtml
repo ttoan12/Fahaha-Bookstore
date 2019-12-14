@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+@*<main class="page-section inner-page-sec-padding-bottom">
+        <div class="container">
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                <form id="form_dangki" action="~/Account/Register" method="post">
+                    <div class="login-form">
+                        <h4 class="login-title">Register</h4>
+                        <div class="row">
+                            <div class="col-md-12 col-12 mb--15">
+                                <label for="email">Username</label>
+                                <input class="mb-0 form-control" type="text" name="UserName" id="UserName">
+                            </div>
+                            <div class="col-12 mb--20">
+                                <label for="password">Password</label>
+                                <input class="mb-0 form-control" type="password" name="PassWord" id="PassWord">
+
+                            </div>
+                            <div class="col-12 mb--20">
+                                <label for="password">Re-Password</label>
+                                <input class="mb-0 form-control" type="password" name="RePassWord" id="RePassWord">
+
+                            </div>
+                            <div class="col-12 mb--20">
+                                <label for="password">First Name</label>
+                                <input class="mb-0 form-control" type="text" name="FirstName" id="FirstName">
+
+                            </div>
+                            <div class="col-12 mb--20">
+                                <label for="password">Last Name</label>
+                                <input class="mb-0 form-control" type="text" name="LastName" id="LastName">
+
+                            </div>
+                            <div class="col-12 mb--20">
+                                <label for="password">Phone Number</label>
+                                <input class="mb-0 form-control" type="text" name="PhoneNumber" id="PhoneNumber">
+
+                            </div>
+                            <div class="col-12 mb--20">
+                                <label for="password">Email</label>
+                                <input class="mb-0 form-control" type="text" name="Email" id="Email">
+
+                            </div>
+                            <div class="col-md-12">
+
+
+                                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                                <script type="text/javascript">
+                                    function remove() {
+                                        swal({
+                                            title: "Xác nhận?",
+                                            text: "Nhấn OK nếu bạn muốn đăng ký, nhấn Cancel để hủy!",
+                                            icon: "warning",
+                                            buttons: true,
+                                            dangerMode: true,
+                                        })
+                                            .then((willDelete) => {
+                                                if (willDelete) {
+                                                    document.getElementById("form_dangki").submit();
+                                                }
+
+                                            });
+
+                                    }
+
+
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <input type="submit" value="Register" class="btn btn-outlined" onclick="remove()" />
+                <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                @if (ViewBag.Message == "Register successfully")
+                {
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            swal("Đăng kí thành công!", "Nhấn OK!", "success");
+
+                        });
+                    </script>
+                }
+                else if (ViewBag.Message == "failed")
+                {
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            swal("Nhập lỗi", "Vui lòng nhập lại", "error");
+
+                        });
+                    </script>
+                }
+            </div>
+            </div>
+        </div>
+    </main>*@
+<!-- Loging Area Start -->
+<div class="login-account section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <form action="~/Account/Register" class="create-account-form" method="post" style="padding-right: 100px;width: 602px;padding-left: 100px;margin-left: 300px;">
+                    <h2 class="heading-title">
+                        CREATE AN ACCOUNT
+                    </h2>
+                    <p class="form-row">
+                        <input type="text" placeholder="Ten dang nhap" name="UserName" id="UserName">
+                    </p>
+
+                    <p class="form-row">
+                        <input type="password" placeholder="Password" name="PassWord" id="PassWord">
+                    </p>
+                    <p class="form-row">
+                        <input type="password" placeholder="RePassword" name="RePassWord" id="RePassWord">
+                    </p>
+                    <p class="form-row">
+                        <input type="text" placeholder="FirstName" name="FirstName" id="FirstName">
+                    </p>
+                    <p class="form-row">
+                        <input type="text" placeholder="LastName" name="LastName" id="LastName">
+                    </p>
+                    <p class="form-row">
+                        <input type="number" placeholder="PhoneNumber" name="PhoneNumber" id="PhoneNumber">
+                    </p>
+                    <p class="form-row">
+                        <input type="email" placeholder="Email" name="Email" id="Email">
+                    </p>
+
+                    @*<p class="form-row">
+                            <input type="password" placeholder="PrePassword" name="RePassWord" id="RePassWord">
+                        </p>*@
+                    <div class="submit">
+                        <button name="submitcreate" id="submitcreate" type="submit" class="btn-default" style="margin-left: 100px;">
+                            <span>
+                                <i class="fa fa-user left"></i>
+
+                                Create an account
+
+                            </span>
+                            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                            @if (ViewBag.Message == "Register successfully")
+                            {
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        swal("Đăng kí thành công!", "Nhấn OK!", "success");
+
+                                    });
+                                </script>
+                            }
+                            else if (ViewBag.Message == "failed")
+                            {
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        swal("Nhập lỗi", "Vui lòng nhập lại", "error");
+
+                                    });
+                                </script>
+                            }
+                        </button>
+                    </div>
+                </form>
+            </div>          
+        </div>
+    </div>
+</div>
+<!-- Loging Area End -->

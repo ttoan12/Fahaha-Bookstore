@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "ChangeRole";
+    Layout = "~/Views/Shared/_AdminMaxLayout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="~/AdminMax/ListAccount">Admin</a><i class="fa fa-angle-right"></i>Quản lý quyền hạn</li>
+</ol>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Quản lý quyền hạn</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Họ và tên</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Mật khẩu</th>
+                        <th>Role</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.ListAccount)
+                    {
+                        <tr>
+                            <td>@item.FirstName @item.LastName</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Password</td>
+                            <td>@item.Role.Description</td>
+                            <td>
+                                <a class="btn btn-warning" href="~/AdminMax/AdminEditRole/@item.ID">Thay Đổi</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="agile-grids">
+    <div class="agile-tables">
+        <div class="w3l-table-info">
+            <h2>Danh sách khách hàng</h2>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Họ và tên</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Mật khẩu</th>
+                        <th>Role</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.ListAccount)
+                    {
+                        <tr>
+                            <td>@item.FirstName @item.LastName</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Password</td>
+                            <td>@item.Role.Description</td>
+                            <td>
+                                <a class="btn btn-warning" href="~/AdminMax/AdminEditRole/@item.ID">Thay Đổi</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>*@
+
+

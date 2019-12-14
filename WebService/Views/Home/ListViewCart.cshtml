@@ -1,0 +1,48 @@
+﻿@using WebService.Models;
+@model List<BillDetail>
+    <script>
+        var temp = 0;
+    </script>
+@if (Model != null)
+{
+    foreach (var item in Model)
+{
+
+    <div class="cart-product">
+        <div class="cart-product-image">
+            <a href="single-product.html">
+                <img src="~/Content/UploadedFiles/@item.Book.Image" alt="">
+            </a>
+        </div>
+        <div class="cart-product-info">
+            <p>
+                <span id="Count" name="Count">@item.Count</span>
+
+                <a href="single-product.html">@item.Book.Name</a>
+            </p>
+
+            <span class="cart-price">$ @item.Price</span>
+        </div>
+        @*<div class="cart-product-remove" >
+            <a href="~/Cart/DeleteCart/@item.ID">
+                <i class="fa fa-times" ></i>
+            </a>
+        </div>*@
+    </div>
+}
+}
+<div class="total-cart-price">
+
+    <div class="cart-product-line">
+        <span>Total</span>
+        @if (Model == null)
+        {
+        <span class="total">0</span>
+        }
+        //loi nay à
+        else if (Model != null)
+        {
+          <span class="total">@ViewBag.Total.TotalCost</span>
+        }
+    </div>
+</div>

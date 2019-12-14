@@ -1,0 +1,99 @@
+﻿@using WebService.Models;
+@model List<Book>
+@{
+    ViewBag.Title = "Seach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="inner-page-sec-padding-bottom">
+    <div class="container">
+        
+        
+        <div class="shop-product-wrap grid with-pagination row space-db--30 shop-border">
+            @foreach (var item in ViewBag.l)
+            {
+                <div class="col-lg-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-grid-content">
+
+                            <div class="product-header">
+                                <h3><a href="/Book/Detail/@item.ID">@item.Name</a></h3>
+                                @item.Author.Name
+                            </div>
+                            <div class="product-card--body">
+                                <div class="card-image">
+                                    <img height="200" width="200" src="~/Content/UploadedFiles/@item.Image" alt="">
+                                    <div class="hover-contents">
+                                        <a href="product-details.html" class="hover-image">
+                                            <img src="image/products/product-1.jpg" alt="">
+                                            <div class="hover-contents">
+                                                <a href="product-details.html" class="hover-image">
+                                                    <img src="image/products/product-1.jpg" alt="">
+                                                </a>
+                                                <div class="hover-btns">
+
+                                                    <a href="~/Cart/AddSingle/@item.ID" class="single-btn">
+                                                        <i class="fas fa-shopping-basket"></i>
+                                                    </a>
+                                                    <a href="~/Book/Detail/@item.ID" class="single-btn">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="price-block" style="left: 0px;width: 280px;">
+                                    <span class="price" style="top: 0px;right: 30px;">$@item.ReducePrice</span>
+                                    <del class="price-old">$@item.Price</del>
+                                    <span class="price-discount">@item.Discount%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-list-content">
+                            <div class="card-image">
+                                <img src="~/Content/UploadedFiles/@item.Image" alt="">
+                            </div>
+                            <div class="product-card--body">
+                                <div class="product-header">
+                                    <a href="" class="author">
+                                        Gpple
+                                    </a>
+                                    <h3><a href="product-details.html" tabindex="0">Qpple cPad with Retina Display MD510LL/A</a></h3>
+                                </div>
+                                <article>
+                                    <h2 class="sr-only">Card List Article</h2>
+                                    <p>
+                                        More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy
+                                        up to 40,000 songs or..
+                                    </p>
+                                </article>
+                                <div class="price-block">
+                                    <span class="price">@item.ReducePrice</span>
+                                    <del class="price-old">@item.Price</del>
+                                    <span class="price-discount">@item.Discount%</span>
+                                </div>
+                                <div class="rating-block">
+                                    <span class="fas fa-star star_on"></span>
+                                    <span class="fas fa-star star_on"></span>
+                                    <span class="fas fa-star star_on"></span>
+                                    <span class="fas fa-star star_on"></span>
+                                    <span class="fas fa-star "></span>
+                                </div>
+                                <div class="btn-block">
+                                    <a href="" class="btn btn-outlined">Add To Cart</a>
+                                    <a href="" class="card-link"><i class="fas fa-heart"></i> Add To Wishlist</a>
+                                    <a href="" class="card-link"><i class="fas fa-random"></i> Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</main>
+
+
+

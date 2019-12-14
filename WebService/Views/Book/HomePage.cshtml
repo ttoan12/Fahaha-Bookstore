@@ -1,0 +1,291 @@
+﻿
+@{
+    ViewBag.Title = "HomePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="slider-area">
+    <div class="bend niceties preview-1">
+
+        <div id="ensign-nivoslider" class="slides">
+
+            <img src="~/Content/template/img/BGR1.jpg" alt="" title="#slider-direction-1" />
+            <img src="~/Content/template/img/BGR2.jpg" alt="" title="#slider-direction-2" />
+            <img src="~/Content/template/img/BGR3.jpg" alt="" title="#slider-direction-2" />
+
+        </div>
+        <!-- direction 1 -->
+        <div id="slider-direction-1" class="text-center slider-direction">
+            <!-- layer 1 -->
+            <div class="layer-1">
+                <h2 class="title-1">NGUỒN TRÍ TUỆ CHO CHÍNH BẠN</h2>
+            </div>
+            <!-- layer 2 -->
+            <div class="layer-2">
+                <p class="title-2">Bạn biết rằng bạn đã đọc một cuốn sách hay khi bạn giở đến trang cuối cùng và cảm thấy như mình vừa chia tay một người bạn..</p>
+            </div>
+           
+            <!-- layer 4 -->
+            <div class="layer-4">
+                <form action="~/Book/Search" class="title-4" method="post">
+                    <input type="text" name="Name" id="Name" placeholder="Nhập tên sách cần tìm">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <!-- direction 2 -->
+        <div id="slider-direction-2" class="slider-direction">
+            <!-- layer 1 -->
+            <div class="layer-1">
+                <h2 class="title-1">LET’S WRITE IMAGINE</h2>
+            </div>
+            <!-- layer 2 -->
+            <div class="layer-2">
+                <p class="title-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            
+            <!-- layer 4 -->
+            <div class="layer-4">
+                <form action="#" class="title-4">
+                    <input type="text" placeholder="Enter your book title here">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="featured-product-area section-padding">
+    <h2 class="section-title" style="margin-bottom:50px">FEATURED PRODUCTS</h2>
+    <div class="container">
+        @*<div class="row">
+                <div class="col-md-12">
+                    <div class="tab-menu">
+
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="first-item active">
+                                <a href="#arrival" aria-controls="arrival" role="tab" data-toggle="tab">New Arrival</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">BEST SELLERS</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>*@
+        <div class="shop-product-wrap grid with-pagination row space-db--30 shop-border">
+            @foreach (var item in ViewBag.ListBook)
+            {
+                <div class="col-lg-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-grid-content">
+                            <div class="product-header">
+                                <h3>
+                                    <a href="/Book/Detail/@item.ID">@item.Name</a>
+                                </h3>
+                                <a href="" class="author">
+                                    @item.Author.Name
+                                </a>
+                            </div>
+                            <div class="product-card--body">
+                                <div class="card-image">
+                                    <img src="~/Content/UploadedFiles/@item.Image" alt="" style="width:50%">
+                                    <div class="hover-contents">
+                                        <a href="product-details.html" class="hover-image">
+                                            <img src="image/products/product-1.jpg" alt="">
+                                        </a>
+                                        <div class="hover-btns">
+
+                                            <a href="~/Cart/AddSingle/@item.ID" class="single-btn">
+                                                <i class="fa fa-compress"></i>
+                                            </a>
+                                            <a href="~/Book/Detail/@item.ID" class="single-btn">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-block" style="margin-top: 0px;margin-right: 50px;">
+                                    <span class="price" style="top: 0px;right: 50px;width: 50px;margin-left: 0px;">$@item.ReducePrice</span>
+                                    <del class="price-old" style="margin-top: 0px;margin-left: 0px;padding-top: 0px;width: 50px;border-top-width: 10px;">$@item.Price</del>
+                                    <span class="price-discount" style="margin-top: 5px;">@item.Discount%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-list-content">
+                            <div class="card-image">
+                                <img src="~/Content/UploadedFiles/@item.Image" alt="">
+                            </div>
+                            <div class="product-card--body">
+                                <div class="product-header">
+                                    <a href="" class="author">
+                                        Gpple
+                                    </a>
+                                    <h3><a href="product-details.html" tabindex="0">Qpple cPad with Retina Display MD510LL/A</a></h3>
+                                </div>
+                                <article>
+                                    <h2 class="sr-only">Card List Article</h2>
+                                    <p>
+
+                                    </p>
+                                </article>
+                                <div class="price-block">
+                                    <span class="price">@item.ReducePrice</span>
+                                    <del class="price-old">@item.Price</del>
+                                    <span class="price-discount">@item.Discount%</span>
+                                </div>
+                                <div class="rating-block">
+                                    <span class="fas fa-star star_on"></span>
+                                    <span class="fas fa-star star_on"></span>
+                                    <span class="fas fa-star star_on"></span>
+                                    <span class="fas fa-star star_on"></span>
+                                    <span class="fas fa-star "></span>
+                                </div>
+                                <div class="btn-block">
+                                    <a href="~/Account/Add" class="btn btn-outlined">Add To Cart</a>
+                                    <a href="" class="card-link"><i class="fas fa-heart"></i> Add To Wishlist</a>
+                                    <a href="" class="card-link"><i class="fas fa-random"></i> Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                @*<div class="single-p-banner">
+                        <div class="col-md-3">
+                            <div class="single-banner">
+                                <div class="product-wrapper">
+                                    <a href="/Book/Detail/@item.ID" class="single-banner-image-wrapper">@item.Name
+                                        <~/Content/Admin/template/img alt="" src="~/Content/UploadedFiles/@item.Image">
+                                        <div class="price"><span>$</span>160</div>
+                                        <div class="rating-icon">
+                                            <i class="fa fa-star icolor"></i>
+                                            <i class="fa fa-star icolor"></i>
+                                            <i class="fa fa-star icolor"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </a>
+                                    <div class="product-description">
+                                        <div class="functional-buttons">
+                                            <a href="~/Cart/AddSingle/@item.ID" title="Add to Cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                            <a href="~/Book/Detail/@item.ID" title="Add to Wishlist">
+                                                <i class="fa fa-heart-o"></i>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="banner-bottom text-center">
+                                    <a href="#"> @item.Author.Name</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="single-banner">
+                                <div class="product-wrapper">
+                                    <a href="#" class="single-banner-image-wrapper">
+                                        <~/Content/Admin/template/img alt="" src="~/Content/UploadedFiles/@item.Image">
+                                        <div class="price"><span>$</span>@item.Price</div>
+                                        <div class="rating-icon">
+                                            <i class="fa fa-star icolor"></i>
+                                            <i class="fa fa-star icolor"></i>
+                                            <i class="fa fa-star icolor"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </a>
+                                    <div class="product-description">
+                                        <div class="functional-buttons">
+                                            <a href="~/Cart/AddSingle/@item.ID" title="Add to Cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+
+                                            <a href="~/Book/Detail/@item.ID" title="Quick view" data-toggle="modal" data-target="#productModal">
+                                                <i class="fa fa-compress"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="banner-bottom text-center">
+                                    <a href="#">  @item.Author.Name</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+            }
+        </div>
+
+
+    </div>
+</div>
+
+<div class="related-product-area">
+    <h2 class="section-title" style="margin-bottom:0px;">RELATED PRODUCTS</h2>
+    <div class="container">
+        <div class="row">
+            <div class="related-product indicator-style">
+                @foreach (var item in ViewBag.ListBook)
+                {
+                    <div class="col-md-3" style="width: 100px;margin-left: 10px;margin-right: 0px;padding-left: 0px;padding-right: 0px;">
+                        <div class="single-banner" style="width: 202px;">
+                            <div class="product-wrapper">
+                                <a href="#" class="single-banner-image-wrapper">
+                                    <img alt="" src="~/Content/UploadedFiles/@item.Image">
+                                    <span class="price">$@item.ReducePrice</span>
+                                    <del class="price-old">$@item.Price</del>
+                                    <span class="price-discount">@item.Discount%</span>
+                                    <div class="rating-icon">
+                                        <i class="fa fa-star icolor"></i>
+                                        <i class="fa fa-star icolor"></i>
+                                        <i class="fa fa-star icolor"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </a>
+                                <div class="product-description">
+                                    <div class="functional-buttons">
+                                        <a href="~/Book/Detail/@item.ID" title="Add to Cart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>                                       
+                                        <a href="~/Cart/AddSingle/@item.ID" title="Quick View">
+                                            <i class="fa fa-compress"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-bottom text-center">
+                                <a href="/Book/Detail/@item.ID">@item.Name</a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- News Letter Area Start -->
+<div class="newsletter-area text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="newsletter-title">
+                    <h2>SUBSCRIBE OUR NEWSLETTER</h2>
+                    <p>Subscribe here with your email us and get up to date.</p>
+                </div>
+                <div class="letter-box">
+                    <form action="#" method="post" class="search-box">
+                        <div>
+                            <input type="text" placeholder="Subscribe us">
+                            <button type="submit" class="btn btn-search">SUBSCRIBE<span><i class="flaticon-school-1"></i></span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- News Letter Area End -->

@@ -1,0 +1,70 @@
+﻿<Window
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:WSForm"
+		xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=DotNetProjects.DataVisualization.Toolkit"
+		xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" x:Class="WSForm.StatisticWindow"
+		mc:Ignorable="d"
+		Title="StatisticWindow" Height="600" Width="800">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+
+		<Label Grid.Row="0" Grid.ColumnSpan="2" Content="THỐNG KÊ SÁCH TỒN THEO THỂ LOẠI" HorizontalAlignment="Center" Margin="10,10,10,10" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+
+		<chartingToolkit:Chart Grid.Row="1"
+							   VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+							   Margin="10,10,10,10"
+							   x:Name="columnChart" Title="Column Chart" >
+			<chartingToolkit:Chart.LegendStyle>
+				<Style TargetType="{x:Type toolkit:Legend}">
+					<Setter Property="MaxHeight" Value="0"/>
+					<Setter Property="MaxWidth" Value="0"/>
+				</Style>
+			</chartingToolkit:Chart.LegendStyle>
+			<chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" IsSelectionEnabled="True" />
+		</chartingToolkit:Chart>
+
+		<chartingToolkit:Chart Grid.Row="1" Grid.Column="1"
+							   VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+							   Margin="10,10,10,10"
+							   x:Name="pieChart" Title="Pie Chart" >
+			<chartingToolkit:PieSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" IsSelectionEnabled="True" />
+		</chartingToolkit:Chart>
+
+		<chartingToolkit:Chart Grid.Row="2"
+							   VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+							   Margin="10,10,10,10"
+							   x:Name="areaChart" Title="Area Chart" >
+			<chartingToolkit:Chart.LegendStyle>
+				<Style TargetType="{x:Type toolkit:Legend}">
+					<Setter Property="MaxHeight" Value="0"/>
+					<Setter Property="MaxWidth" Value="0"/>
+				</Style>
+			</chartingToolkit:Chart.LegendStyle>
+			<chartingToolkit:AreaSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" IsSelectionEnabled="True"/>
+		</chartingToolkit:Chart>
+
+		<chartingToolkit:Chart Grid.Row="2" Grid.Column="1"
+							   VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+							   Margin="10,10,10,10"
+							   x:Name="barChart" Title="Bar Chart">
+			<chartingToolkit:Chart.LegendStyle>
+				<Style TargetType="{x:Type toolkit:Legend}">
+					<Setter Property="MaxHeight" Value="0"/>
+					<Setter Property="MaxWidth" Value="0"/>
+				</Style>
+			</chartingToolkit:Chart.LegendStyle>
+			<chartingToolkit:BarSeries  DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" IsSelectionEnabled="True"/>
+		</chartingToolkit:Chart>
+	</Grid>
+</Window>
