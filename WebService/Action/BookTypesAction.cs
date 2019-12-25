@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
-using WebService.Models;
+using WebCuaHangSach.Models;
 
-namespace WebService.Action
+namespace WebCuaHangSach.Action
 {
     public class BookTypesAction
     {
@@ -23,7 +21,7 @@ namespace WebService.Action
         {
             using (var db = new BookContext())
             {
-                db.BookTypes.Add(new BookType{Name = Name, IsDeleted = false });
+                db.BookTypes.Add(new BookType { Name = Name, IsDeleted = false });
                 db.SaveChanges();
                 db.Dispose();
             }
@@ -51,7 +49,7 @@ namespace WebService.Action
             }
         }
 
-        public static void ModifyBookType(int ID,string Name)
+        public static void ModifyBookType(int ID, string Name)
         {
             using (var db = new BookContext())
             {

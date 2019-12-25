@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using WebService.Models;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
-namespace WebService.Action
+using System.Linq;
+using WebCuaHangSach.Models;
+
+namespace WebCuaHangSach.Action
 {
     public class ContactInfoAction
     {
@@ -17,6 +16,7 @@ namespace WebService.Action
             }
             return a;
         }
+
         public static List<ContactInfo> ListContact(int ID)
         {
             List<ContactInfo> a = null;
@@ -26,12 +26,19 @@ namespace WebService.Action
             }
             return a;
         }
+
         public static void AddInfoContact(int account_id, string AddressNumber, string Street, string District, string Province)
         {
             using (var db = new BookContext())
             {
-                db.ContactInfos.Add(new ContactInfo {AccountId = account_id,AddressNumber = AddressNumber,Street = Street,
-                District = District,Province = Province});
+                db.ContactInfos.Add(new ContactInfo
+                {
+                    AccountId = account_id,
+                    AddressNumber = AddressNumber,
+                    Street = Street,
+                    District = District,
+                    Province = Province
+                });
                 db.SaveChanges();
                 db.Dispose();
             }

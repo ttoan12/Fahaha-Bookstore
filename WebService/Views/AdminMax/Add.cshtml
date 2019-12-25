@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Add";
     Layout = "~/Views/Shared/_AdminMaxLayout.cshtml";
 }
@@ -8,7 +7,6 @@
     <li class="breadcrumb-item"><a href="index.html">Admin</a><i class="fa fa-angle-right"></i>Thêm tài khoản</li>
 </ol>
 <div class="col-md-5 grid-form1">
-
 
     <div class="panel-body">
         <form role="form" action="~/AdminMax/Add" method="post" class="form-horizontal">
@@ -51,7 +49,7 @@
                         <span class="input-group-addon" style="width: 42px;border-left-width: 2px;border-top-width: 2px;padding-top: 10px;">
                             <i class="fa fa-portrait"></i>
                         </span>
-                        <input class="form-control1" type="text" name="FirstName" id="FirstName"  style="width: 208px;">
+                        <input class="form-control1" type="text" name="FirstName" id="FirstName" style="width: 208px;">
                     </div>
                 </div>
             </div>
@@ -62,7 +60,7 @@
                         <span class="input-group-addon" style="width: 42px;border-left-width: 2px;border-top-width: 2px;padding-top: 10px;">
                             <i class="fa fa-portrait"></i>
                         </span>
-                        <input class="form-control1" type="text" name="LastName" id="LastName"  style="width: 208px;">
+                        <input class="form-control1" type="text" name="LastName" id="LastName" style="width: 208px;">
                     </div>
                 </div>
             </div>
@@ -73,7 +71,7 @@
                         <span class="input-group-addon" style="width: 42px;border-left-width: 2px;border-top-width: 2px;padding-top: 10px;">
                             <i class="fa fa-envelope"></i>
                         </span>
-                        <input class="form-control1" type="text" name="Email" id="Email"  style="width: 208px;"">
+                        <input class="form-control1" type="text" name="Email" id="Email" style="width: 208px;" ">
                     </div>
                 </div>
             </div>
@@ -84,7 +82,7 @@
                         <span class="input-group-addon" style="width: 42px;border-left-width: 2px;border-top-width: 2px;padding-top: 10px;">
                             <i class="fa fa-mobile"></i>
                         </span>
-                        <input class="form-control1" type="text" name="PhoneNumber" id="PhoneNumber"  style="width: 208px;">
+                        <input class="form-control1" type="text" name="PhoneNumber" id="PhoneNumber" style="width: 208px;">
                     </div>
                 </div>
             </div>
@@ -96,7 +94,6 @@
                 <div class="col-md-2">
                     <input class="btn btn-primary btn-hover " value="Thêm tài khoản" type="submit" style="width: 208px;" />
                 </div>
-
             </div>
         </form>
     </div>
@@ -105,7 +102,6 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-       
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -120,11 +116,11 @@
                 <tbody>
                     @foreach (var acc in ViewBag.ListAccount)
                     {
-                        <tr>
-                            <td>@acc.FirstName @acc.LastName</td>
-                            <td>@acc.Email</td>
-                            <td>@acc.PhoneNumber</td>
-                        </tr>
+                    <tr>
+                        <td>@acc.FirstName @acc.LastName</td>
+                        <td>@acc.Email</td>
+                        <td>@acc.PhoneNumber</td>
+                    </tr>
                     }
                 </tbody>
             </table>
@@ -132,27 +128,24 @@
     </div>
 </div>
 
-
 @*<div class="grid-form1 col-md-7">
-    <table id="table">
-        <thead>
-            <tr>
-                <th>Họ và tên</th>
-                <th>Email</th>
-                <th>Số điện thoại</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var acc in ViewBag.ListAccount)
-            {
+        <table id="table">
+            <thead>
                 <tr>
-                    <td>@acc.FirstName @acc.LastName</td>
-                    <td>@acc.Email</td>
-                    <td>@acc.PhoneNumber</td>
+                    <th>Họ và tên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-
-</div>*@
-
+            </thead>
+            <tbody>
+                @foreach (var acc in ViewBag.ListAccount)
+                {
+                    <tr>
+                        <td>@acc.FirstName @acc.LastName</td>
+                        <td>@acc.Email</td>
+                        <td>@acc.PhoneNumber</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>*@

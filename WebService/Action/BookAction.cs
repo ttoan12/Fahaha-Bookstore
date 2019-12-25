@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
-using WebService.Action;
-using WebService.Models;
+using WebCuaHangSach.Models;
 
-namespace WebService.Action
+namespace WebCuaHangSach.Action
 {
     public class BookAction
     {
         #region'Add'
+
         public static void AddBook(Book newBook)
         {
             try
@@ -28,8 +27,6 @@ namespace WebService.Action
             {
                 Console.WriteLine(e.Message);
             }
-
-
         }
 
         public static void AddBook(string Name, string PublishingCompany,
@@ -44,14 +41,11 @@ namespace WebService.Action
                 db.Dispose();
             }
         }
+
         #endregion
 
-        //public Book returnBook()
-        //{
-
-        //}
-
         #region'Search'
+
         public static Book FindBook(int ID)
         {
             using (var db = new BookContext())
@@ -63,7 +57,6 @@ namespace WebService.Action
                 return sach;
             }
         }
-
 
         public static List<Book> ListBook()
         {
@@ -87,6 +80,7 @@ namespace WebService.Action
                 return list;
             }
         }
+
         #endregion
 
         #region 'Modified'
@@ -103,7 +97,6 @@ namespace WebService.Action
                     db.SaveChanges();
                     db.Dispose();
                     return true;
-
                 }
                 return false;
             }
@@ -151,9 +144,11 @@ namespace WebService.Action
                 db.Dispose();
             }
         }
+
         #endregion
 
         #region'Delete'
+
         public static void DeleteBook(int ID)
         {
             using (var db = new BookContext())
@@ -168,10 +163,10 @@ namespace WebService.Action
                 db.Dispose();
             }
         }
+
         #endregion
 
         #region PhanLoai
-
 
         public static List<Book> ListTruyen()
         {
@@ -202,6 +197,7 @@ namespace WebService.Action
             }
             return a;
         }
+
         //public static List<Book> ListTrinhTham()
         //{
         //    List<Book> a = null;
@@ -221,6 +217,7 @@ namespace WebService.Action
             }
             return a;
         }
+
         public static List<Book> SearchBook(string name)
         {
             List<Book> a = null;
@@ -230,25 +227,22 @@ namespace WebService.Action
             }
             return a;
         }
+
         #endregion
 
         public static void Watched(Nullable<int> id_account, int id_book)
         {
             using (var db = new BookContext())
             {
+                db.Watcheds.Add(new Watched { id_account = id_account, id_book = id_book });
 
-
-                    db.Watcheds.Add(new Watched { id_account = id_account, id_book = id_book });
-          
                 db.SaveChanges();
                 db.Dispose();
-
             }
-        } 
+        }
 
         public static List<SachTop5> AddSachTop5ToDb()
         {
-
             using (var db = new BookContext())
             {
                 var query = db.BillDetails.Include(m => m.Book).
@@ -261,24 +255,26 @@ namespace WebService.Action
                         }).OrderBy(m => m.tong1)
                         .Take(5).ToList();
 
-                foreach(var c in query)
+                foreach (var c in query)
                 {
                     var t = db.Books.Include(m => m.Author).Where(m => m.Name == c.Name).ToList();
                     foreach (var cc in t)
                     {
-                        db.SachTop5s.Add(new SachTop5 { name = cc.Name,
-                        name_author = cc.Author.Name,price = cc.Price,price_discount = cc.ReducePrice,
-                        discount = cc.Discount,
-                         img = cc.Image});
+                        db.SachTop5s.Add(new SachTop5
+                        {
+                            name = cc.Name,
+                            name_author = cc.Author.Name,
+                            price = cc.Price,
+                            price_discount = cc.ReducePrice,
+                            discount = cc.Discount,
+                            img = cc.Image
+                        });
                         db.SaveChanges();
-               
                     }
                 }
-               
-                return db.SachTop5s.Take(5).ToList(); 
+
+                return db.SachTop5s.Take(5).ToList();
             }
         }
     }
-
-
 }

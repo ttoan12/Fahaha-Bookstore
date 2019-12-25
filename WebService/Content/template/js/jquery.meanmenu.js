@@ -1,6 +1,6 @@
-(function($) {
+(function ($) {
     "use strict";
-    $.fn.meanmenu = function(options) {
+    $.fn.meanmenu = function (options) {
         var defaults = {
             meanMenuTarget: jQuery(this),
             meanMenuContainer: '.mobile-menu-area .container',
@@ -23,7 +23,7 @@
         };
         options = $.extend(defaults, options);
         var currentWidth = window.innerWidth || document.documentElement.clientWidth;
-        return this.each(function() {
+        return this.each(function () {
             var meanMenu = options.meanMenuTarget;
             var meanContainer = options.meanMenuContainer;
             var meanMenuClose = options.meanMenuClose;
@@ -51,7 +51,7 @@
                 jQuery('html').css("overflow-y", "scroll");
             }
             var meanRevealPos = "";
-            var meanCentered = function() {
+            var meanCentered = function () {
                 if (meanRevealPosition === "center") {
                     var newWidth = window.innerWidth || document.documentElement.clientWidth;
                     var meanCenter = ((newWidth / 2) - 22) + "px";
@@ -75,14 +75,14 @@
             }
             meanCentered();
             var $navreveal = "";
-            var meanInner = function() {
+            var meanInner = function () {
                 if (jQuery($navreveal).is(".meanmenu-reveal.meanclose")) {
                     $navreveal.html(meanMenuClose);
                 } else {
                     $navreveal.html(meanMenuOpen);
                 }
             };
-            var meanOriginal = function() {
+            var meanOriginal = function () {
                 jQuery('.mean-bar,.mean-push').remove();
                 jQuery(meanContainer).removeClass("mean-container");
                 jQuery(meanMenu).css('display', meanDisplay);
@@ -90,7 +90,7 @@
                 meanMenuExist = false;
                 jQuery(removeElements).removeClass('mean-remove');
             };
-            var showMeanMenu = function() {
+            var showMeanMenu = function () {
                 var meanStyles = "background:" + meanRevealColour + ";color:" + meanRevealColour + ";" + meanRevealPos;
                 if (currentWidth <= meanScreenWidth) {
                     jQuery(removeElements).addClass('mean-remove');
@@ -100,7 +100,7 @@
                     var meanMenuContents = jQuery(meanMenu).html();
                     jQuery('.mean-nav').html(meanMenuContents);
                     if (meanRemoveAttrs) {
-                        jQuery('nav.mean-nav ul, nav.mean-nav ul *').each(function() {
+                        jQuery('nav.mean-nav ul, nav.mean-nav ul *').each(function () {
                             if (jQuery(this).is('.mean-remove')) {
                                 jQuery(this).attr('class', 'mean-remove');
                             } else {
@@ -118,19 +118,19 @@
                     jQuery('.mean-nav ul').hide();
                     if (meanShowChildren) {
                         if (meanExpandableChildren) {
-                            jQuery('.mean-nav ul ul').each(function() {
+                            jQuery('.mean-nav ul ul').each(function () {
                                 if (jQuery(this).children().length) {
                                     jQuery(this, 'li:first').parent().append('<a class="mean-expand" href="#" style="font-size: ' + meanMenuCloseSize + '">' + meanExpand + '</a>');
                                 }
                             });
-                            jQuery('.mean-expand').on("click", function(e) {
+                            jQuery('.mean-expand').on("click", function (e) {
                                 e.preventDefault();
                                 if (jQuery(this).hasClass("mean-clicked")) {
                                     jQuery(this).text(meanExpand);
-                                    jQuery(this).prev('ul').slideUp(300, function() {});
+                                    jQuery(this).prev('ul').slideUp(300, function () { });
                                 } else {
                                     jQuery(this).text(meanContract);
-                                    jQuery(this).prev('ul').slideDown(300, function() {});
+                                    jQuery(this).prev('ul').slideDown(300, function () { });
                                 }
                                 jQuery(this).toggleClass("mean-clicked");
                             });
@@ -142,7 +142,7 @@
                     }
                     jQuery('.mean-nav ul li').last().addClass('mean-last');
                     $navreveal.removeClass("meanclose");
-                    jQuery($navreveal).click(function(e) {
+                    jQuery($navreveal).click(function (e) {
                         e.preventDefault();
                         if (menuOn === false) {
                             $navreveal.css("text-align", "center");
@@ -159,7 +159,7 @@
                         jQuery(removeElements).addClass('mean-remove');
                     });
                     if (onePage) {
-                        jQuery('.mean-nav ul > li > a:first-child').on("click", function() {
+                        jQuery('.mean-nav ul > li > a:first-child').on("click", function () {
                             jQuery('.mean-nav ul:first').slideUp();
                             menuOn = false;
                             jQuery($navreveal).toggleClass("meanclose").html(meanMenuOpen);
@@ -170,7 +170,7 @@
                 }
             };
             if (!isMobile) {
-                jQuery(window).resize(function() {
+                jQuery(window).resize(function () {
                     currentWidth = window.innerWidth || document.documentElement.clientWidth;
                     if (currentWidth > meanScreenWidth) {
                         meanOriginal();
@@ -185,7 +185,7 @@
                     }
                 });
             }
-            jQuery(window).resize(function() {
+            jQuery(window).resize(function () {
                 currentWidth = window.innerWidth || document.documentElement.clientWidth;
                 if (!isMobile) {
                     meanOriginal();

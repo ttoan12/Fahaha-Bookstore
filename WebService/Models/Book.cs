@@ -1,11 +1,9 @@
-﻿
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebService.Models
+namespace WebCuaHangSach.Models
 {
     public class Book
     {
@@ -34,12 +32,12 @@ namespace WebService.Models
         public double ReducePrice { get; set; }
         public int Count { get; set; }
 
-
         [NotMapped]
         public List<Author> AuthorCollection { get; set; }
 
         [NotMapped]
         public List<BookType> BookTypeCollection { get; set; }
+
         public Author Author { get; set; }
         public BookType BookType { get; set; }
 
@@ -72,10 +70,12 @@ namespace WebService.Models
             this.NumberOfPages = another.NumberOfPages;
             this.CoverType = another.CoverType;
             this.BookTypeID = another.BookTypeID;
+            this.AuthorID = another.AuthorID;
             this.Image = another.Image;
             this.Count = another.Count;
             this.Price = another.Price;
-            IsDeleted = false;
+            this.ReducePrice = another.Price - another.Discount;
+            IsDeleted = another.IsDeleted;
         }
 
         public Book()
@@ -93,6 +93,7 @@ namespace WebService.Models
             this.Count = book.Count;
             this.CoverType = book.CoverType ?? this.CoverType;
             this.BookTypeID = book.BookTypeID;
+            this.AuthorID = book.AuthorID;
             this.Image = book.Image ?? this.Image;
             this.Price = book.Price;
             this.IsDeleted = book.IsDeleted;

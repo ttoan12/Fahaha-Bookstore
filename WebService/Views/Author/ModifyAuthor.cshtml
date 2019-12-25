@@ -2,8 +2,7 @@
     ViewBag.Title = "AddBookType";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<script type="text/javascript">
-    $(document).ready(function () {
+<script type="text/javascript">$(document).ready(function () {
         $('#table').basictable();
 
         $('#table-breakpoint').basictable({
@@ -27,8 +26,7 @@
         $('#table-max-height').basictable({
             tableWrapper: true
         });
-    });
-</script>
+    });</script>
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="index.html">Admin</a><i class="fa fa-angle-right"></i>Sửa Tác Giả</li>
 </ol>
@@ -45,8 +43,6 @@
                     <input type="text" value="@ViewBag.Author.Name" id="Name" name="Name" />
                 </div>
             </div>
-
-
         </div>
         <div class="form-group">
             <label class="col-md-4 control-label">Mô tả:</label>
@@ -58,12 +54,9 @@
                     <input type="text" value="@ViewBag.Author.Description" id="Description" name="Description" />
                 </div>
             </div>
-
-
         </div>
         <div class="form-group col-lg-offset-4">
             <input type="submit" value="Sửa tác giả">
         </div>
     </form>
 </div>
-

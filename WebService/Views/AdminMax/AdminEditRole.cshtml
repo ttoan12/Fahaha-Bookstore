@@ -1,12 +1,9 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "AdminEditRole";
     Layout = "~/Views/Shared/_AdminMaxLayout.cshtml";
 }
 
-
 <div class="col-md-5 grid-form1">
-
 
     <div class="panel-body">
         <form role="form" action="~/AdminMax/Change" method="post" class="form-horizontal">
@@ -16,27 +13,24 @@
                 <div class="col-md-8">
                     @if (ViewBag.Account.RoleID == 2)
                     {
-                        <select name="RoleID" id="RoleID" class="form-control">
-                            <option value="2" selected="selected">User</option>
-                            <option value="1">Quản Lý</option>
-                           
-                        </select>
+                    <select name="RoleID" id="RoleID" class="form-control">
+                        <option value="2" selected="selected">User</option>
+                        <option value="1">Quản Lý</option>
+                    </select>
                     }
                     else if (ViewBag.Account.RoleID == 1)
                     {
-                        <select name="RoleID" id="RoleID" class="form-control">
-                            <option value="2">User</option>
-                            <option value="1" selected="selected">Quản Lý</option>
-                            
-                        </select>
+                    <select name="RoleID" id="RoleID" class="form-control">
+                        <option value="2">User</option>
+                        <option value="1" selected="selected">Quản Lý</option>
+                    </select>
                     }
                     else
                     {
-                        <select name="RoleID" id="RoleID" class="form-control">
-                            <option value="2">User</option>
-                            <option value="1">Quản Lý</option>
-                          
-                        </select>
+                    <select name="RoleID" id="RoleID" class="form-control">
+                        <option value="2">User</option>
+                        <option value="1">Quản Lý</option>
+                    </select>
                     }
                 </div>
             </div>
@@ -46,8 +40,3 @@
         </form>
     </div>
 </div>
-
-
-
-
-

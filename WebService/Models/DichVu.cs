@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
-namespace WebService.Models
+namespace WebCuaHangSach.Models
 {
     public class DichVu
     {
@@ -16,6 +12,5 @@ namespace WebService.Models
         public string nameDV { get; set; }
 
         public double priceDv { get; set; }
-
     }
 }

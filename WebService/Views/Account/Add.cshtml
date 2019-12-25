@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Add";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
@@ -7,7 +6,7 @@
     <li class="breadcrumb-item"><a href="index.html">Admin</a><i class="fa fa-angle-right"></i>Thêm khách hàng</li>
 </ol>
 <div class="col-md-5 grid-form1">
-    
+
     <div class="panel-body">
         <form role="form" action="~/Account/Add" method="post" class="form-horizontal">
             <div class="form-group">
@@ -84,7 +83,6 @@
                 <div class="col-md-2">
                     <input class="btn btn-primary btn-hover " value="Thêm khách hàng" type="submit" />
                 </div>
-
             </div>
         </form>
     </div>
@@ -101,13 +99,12 @@
         <tbody>
             @foreach (var acc in ViewBag.ListAccount)
             {
-                <tr>
-                    <td>@acc.FirstName @acc.LastName</td>
-                    <td>@acc.Email</td>
-                    <td>@acc.PhoneNumber</td>
-                </tr>
+            <tr>
+                <td>@acc.FirstName @acc.LastName</td>
+                <td>@acc.Email</td>
+                <td>@acc.PhoneNumber</td>
+            </tr>
             }
         </tbody>
     </table>
-
 </div>

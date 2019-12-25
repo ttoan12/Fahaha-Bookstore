@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace WebService
+namespace WebCuaHangSach
 {
     public class FilterConfig
     {

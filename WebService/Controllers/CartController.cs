@@ -1,21 +1,17 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Configuration;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using WebService.Action;
-using WebService.Models;
+using WebCuaHangSach.Action;
+using WebCuaHangSach.Models;
 
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class CartController : Controller
     {
         // GET: Cart
         public ActionResult Index()
         {
-
             return View();
         }
 
@@ -27,7 +23,7 @@ namespace WebService.Controllers
             {
                 ViewBag.Alert = TempData["Alert"].ToString();
             }
-            if(Session["UserName"] != null && (int)Session["Role"] == 2)
+            if (Session["UserName"] != null && (int)Session["Role"] == 2)
             {
                 int AccountId = (int)Session["UserID"];
                 if (Session["UserID"] == null)
@@ -40,7 +36,6 @@ namespace WebService.Controllers
                 {
                     ViewBag.ListCart = listCart;
                     ViewBag.Detail = listCart.FirstOrDefault();
-
                 }
                 return View();
             }
@@ -52,14 +47,14 @@ namespace WebService.Controllers
             if (Session["UserName"] != null && (int)Session["Role"] == 2)
             {
                 int AccountId = (int)Session["UserID"];
-                BillAction.AddSingle(AccountId,ID);
+                BillAction.AddSingle(AccountId, ID);
                 return RedirectToAction("ShopGrid", "Book");
             }
             return RedirectToAction("Login", "Account");
         }
 
         [HttpPost]
-        public ActionResult AddCart(int BookId,int Count)
+        public ActionResult AddCart(int BookId, int Count)
         {
             if (Session["UserName"] != null && (int)Session["Role"] == 2)
             {
@@ -72,22 +67,23 @@ namespace WebService.Controllers
 
         public ActionResult Order(int BillId)
         {
-
             BillAction.AddCartToBill(BillId);
             return RedirectToAction("ViewCart");
         }
+
         public ActionResult DeleteCart(int Id)
         {
-
             BillAction.DeleteCartDetail(Id);
             return RedirectToAction("ViewCart");
         }
+
         [HttpPost]
         public ActionResult UpdateCart(int ID, int Count)
         {
             BillAction.UpdateCart(ID, Count);
             return RedirectToAction("ViewCart");
         }
+
         [HttpGet]
         public ActionResult Checkout()
         {
@@ -99,6 +95,7 @@ namespace WebService.Controllers
             }
             return RedirectToAction("Login", "Account");
         }
+
         public ActionResult ManageInfo()
         {
             if (Session["UserID"] == null && (int)Session["Role"] == 2)
@@ -107,7 +104,6 @@ namespace WebService.Controllers
                 return View();
             }
             return RedirectToAction("Index", "Book");
-
         }
 
         [HttpPost]

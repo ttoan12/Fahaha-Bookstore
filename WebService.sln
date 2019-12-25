@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "WebService\WebService.csproj", "{E0384FFB-29BE-4420-BCA0-5779189058E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCuaHangSach", "WebService\WebCuaHangSach.csproj", "{E0384FFB-29BE-4420-BCA0-5779189058E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSForm", "WSForm\WSForm.csproj", "{C53AD102-DBC3-4DA8-A7F7-8245ABA8734C}"
 EndProject

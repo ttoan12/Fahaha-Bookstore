@@ -1,37 +1,32 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "BookDetail";
 }
-    <div class="bend niceties preview-1">
+<div class="bend niceties preview-1">
 
-        <div id="ensign-nivoslider" class="slides">
+    <div id="ensign-nivoslider" class="slides">
 
-            <img src="~/Content/template/img/BGR1.jpg" alt="" title="#slider-direction-1" />
-            <img src="~/Content/template/img/BGR2.jpg" alt="" title="#slider-direction-2" />
-            <img src="~/Content/template/img/BGR3.jpg" alt="" title="#slider-direction-2" />
-
-        </div>
-        <!-- direction 1 -->
-        <div id="slider-direction-1" class="text-center slider-direction">
-            <!-- layer 1 -->
-            <div class="layer-1">
-                <h2 class="title-1">THANH TOÁN</h2>
-            </div>
-            <!-- layer 2 -->
-            <!-- layer 3 -->
-            <!-- layer 4 -->
-
-        </div>
-        <!-- direction 2 -->
-
+        <img src="~/Content/template/img/BGR1.jpg" alt="" title="#slider-direction-1" />
+        <img src="~/Content/template/img/BGR2.jpg" alt="" title="#slider-direction-2" />
+        <img src="~/Content/template/img/BGR3.jpg" alt="" title="#slider-direction-2" />
     </div>
-
+    <!-- direction 1 -->
+    <div id="slider-direction-1" class="text-center slider-direction">
+        <!-- layer 1 -->
+        <div class="layer-1">
+            <h2 class="title-1">THANH TOÁN</h2>
+        </div>
+        <!-- layer 2 -->
+        <!-- layer 3 -->
+        <!-- layer 4 -->
+    </div>
+    <!-- direction 2 -->
+</div>
 
 <!-- Single Product Area Start -->
 <div class="single-product-area section-padding">
     <div class="container">
         <div class="row">
-            
+
             <div class="col-lg-5 mb--30">
 
                 <div class="product-details-slider sb-slick-slider arrow-type-two" data-slick-setting='{
@@ -46,17 +41,17 @@
                         <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
                     </div>
                     @*<div class="single-slide">
-                        <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
-                    </div>*@
+                            <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
+                        </div>
+                        <div class="single-slide">
+                            <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
+                        </div>
+                        <div class="single-slide">
+                            <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
+                        </div>
+                        <div class="single-slide">
+                            <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
+                        </div>*@
                 </div>
 
                 <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two" data-slick-setting='{
@@ -71,20 +66,20 @@
                   "focusOnSelect": true
                   }'>
                     @*<div class="single-slide">
-                        <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
-                    </div>*@
+                            <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
+                        </div>
+                        <div class="single-slide">
+                            <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
+                        </div>
+                        <div class="single-slide">
+                            <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
+                        </div>
+                        <div class="single-slide">
+                            <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
+                        </div>
+                        <div class="single-slide">
+                            <img src="~/Content/UploadedFiles/@ViewBag.book.Image" alt="">
+                        </div>*@
                 </div>
             </div>
             <div class="col-md-6 col-sm-5">
@@ -111,26 +106,22 @@
                             <span>
                                 <input type="hidden" id="BookId" name="BookId" value="@ViewBag.Book.ID" />
                                 <input class="cart-btn btn-default" type="submit" value="Add to cart" />
-
-
-
                             </span>
                         </form>
                     </div>
                     @*<div class="add-to-cart-row">
-            <form action="~/Cart/AddCart" method="post" enctype="multipart/form-data">
-                <div class="count-input-block">
-                    <span class="widget-label">Số lượng</span>
-                    <input type="number" id="Count" name="Count" class="form-control text-center" value="1">
-                </div>
+                            <form action="~/Cart/AddCart" method="post" enctype="multipart/form-data">
+                                <div class="count-input-block">
+                                    <span class="widget-label">Số lượng</span>
+                                    <input type="number" id="Count" name="Count" class="form-control text-center" value="1">
+                                </div>
 
-                <div class="add-cart-btn">
-                    <input type="hidden" id="BookId" name="BookId" value="@ViewBag.Book.ID" />
-                    <input class="btn btn-outlined--primary"  />
-
-                </div>
-            </form>
-        </div>*@
+                                <div class="add-cart-btn">
+                                    <input type="hidden" id="BookId" name="BookId" value="@ViewBag.Book.ID" />
+                                    <input class="btn btn-outlined--primary" />
+                                </div>
+                            </form>
+                        </div>*@
                     <div class="single-product-categories">
                         <label>Categories:</label>
                         <a>@ViewBag.Book.BookType.Name</a>
@@ -151,42 +142,41 @@
                         </ul>
                     </div>
                     @*<table class="table-data-sheet">
-                        <tbody>
-                            <tr class="odd">
-                                <td>Mã sách</td>
-                                <td>@ViewBag.book.ID</td>
-                            </tr>
-                            <tr class="odd">
-                                <td>Thể loại</td>
-                                <td>@ViewBag.book.BookType.Name</td>
-                            </tr>
-                            <tr class="even">
-                                <td>Nhà xuất bản</td>
-                                <td>@ViewBag.book.PublishingCompany</td>
-                            </tr>
-                            <tr class="odd">
-                                <td>Tác giả</td>
-                                <td>@ViewBag.book.Author.Name</td>
-                            </tr>
-                            <tr class="odd">
-                                <td>Ngày xuất bản</td>
-                                <td>@ViewBag.book.PublishingDate</td>
-                            </tr>
-                            <tr class="odd">
-                                <td>Kích cỡ</td>
-                                <td>@ViewBag.book.Size</td>
-                            </tr>
-                            <tr class="odd">
-                                <td>Số trang/td>
-                                <td>@ViewBag.book.NumberOfPages</td>
-                            </tr>
-                            <tr class="odd">
-                                <td>Còn lại</td>
-                                <td>@ViewBag.book.Count</td>
-                            </tr>
-
-                        </tbody>
-                    </table>*@
+                            <tbody>
+                                <tr class="odd">
+                                    <td>Mã sách</td>
+                                    <td>@ViewBag.book.ID</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Thể loại</td>
+                                    <td>@ViewBag.book.BookType.Name</td>
+                                </tr>
+                                <tr class="even">
+                                    <td>Nhà xuất bản</td>
+                                    <td>@ViewBag.book.PublishingCompany</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Tác giả</td>
+                                    <td>@ViewBag.book.Author.Name</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Ngày xuất bản</td>
+                                    <td>@ViewBag.book.PublishingDate</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Kích cỡ</td>
+                                    <td>@ViewBag.book.Size</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Số trang/td>
+                                    <td>@ViewBag.book.NumberOfPages</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Còn lại</td>
+                                    <td>@ViewBag.book.Count</td>
+                                </tr>
+                            </tbody>
+                        </table>*@
                 </div>
             </div>
         </div>
@@ -237,55 +227,52 @@
                                         <td>Còn lại</td>
                                         <td>@ViewBag.book.Count</td>
                                     </tr>
-
                                 </tbody>
                             </table>
                         </div>
                         @*<div role="tabpanel" class="tab-pane" id="data">
-                            <table class="table-data-sheet">
-                                <tbody>
-                                    <tr class="odd">
-                                        <td>Mã sách</td>
-                                        <td>Short Sleeve</td>
-                                    </tr>
-                                    <tr class="odd">
-                                        <td>Thể loại</td>
-                                        <td>@ViewBag.book.BookType.Name</td>
-                                    </tr>
-                                    <tr class="even">
-                                        <td>Nhà xuất bản</td>
-                                        <td>@ViewBag.book.PublishingCompany</td>
-                                    </tr>
-                                    <tr class="odd">
-                                        <td>Tác giả</td>
-                                        <td>@ViewBag.book.Author.Name</td>
-                                    </tr>
-                                    <tr class="odd">
-                                        <td>Ngày xuất bản</td>
-                                        <td>@ViewBag.book.PublishingDate</td>
-                                    </tr>
-                                    <tr class="odd">
-                                        <td>Kích cỡ</td>
-                                        <td>@ViewBag.book.Size</td>
-                                    </tr>
-                                    <tr class="odd">
-                                        <td>Số trang/td>
-                                        <td>@ViewBag.book.NumberOfPages</td>
-                                    </tr>
-                                    <tr class="odd">
-                                        <td>Còn lại</td>
-                                        <td>@ViewBag.book.Count</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                          
-                        </div>*@
+                                <table class="table-data-sheet">
+                                    <tbody>
+                                        <tr class="odd">
+                                            <td>Mã sách</td>
+                                            <td>Short Sleeve</td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>Thể loại</td>
+                                            <td>@ViewBag.book.BookType.Name</td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td>Nhà xuất bản</td>
+                                            <td>@ViewBag.book.PublishingCompany</td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>Tác giả</td>
+                                            <td>@ViewBag.book.Author.Name</td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>Ngày xuất bản</td>
+                                            <td>@ViewBag.book.PublishingDate</td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>Kích cỡ</td>
+                                            <td>@ViewBag.book.Size</td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>Số trang/td>
+                                            <td>@ViewBag.book.NumberOfPages</td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>Còn lại</td>
+                                            <td>@ViewBag.book.Count</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>*@
                         @*<div role="tabpanel" class="tab-pane" id="reviews">
-                            <div id="product-comments-block-tab">
-                                <a href="#" class="comment-btn"><span>Be the first to write your review!</span></a>
-                            </div>
-                        </div>*@
+                                <div id="product-comments-block-tab">
+                                    <a href="#" class="comment-btn"><span>Be the first to write your review!</span></a>
+                                </div>
+                            </div>*@
                     </div>
                 </div>
             </div>
@@ -299,10 +286,10 @@
     <div class="container">
         <div class="row">
             <div class="related-product indicator-style">
-                    @foreach (var item in ViewBag.ListBook)
+                @foreach (var item in ViewBag.ListBook)
                 {
-                        <div class="col-md-3" style="width: 100px;margin-left: 10px;margin-right: 0px;padding-left: 0px;padding-right: 0px;">
-                        <div class="single-banner" style="width: 202px;">
+                <div class="col-md-3" style="width: 100px;margin-left: 10px;margin-right: 0px;padding-left: 0px;padding-right: 0px;">
+                    <div class="single-banner" style="width: 202px;">
                         <div class="product-wrapper">
                             <a href="#" class="single-banner-image-wrapper">
                                 <img alt="" src="~/Content/UploadedFiles/@item.Image">
@@ -336,7 +323,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 }
             </div>
         </div>
@@ -451,7 +438,6 @@
                                 <div class="add-cart-btn">
                                     <input type="hidden" id="BookId" name="BookId" value="@ViewBag.Book.ID" />
                                     <input class="btn btn-outlined--primary" type="submit" value="Đặt mua" />
-
                                 </div>
                             </form>
                         </div>
@@ -578,7 +564,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <section class="">
@@ -912,7 +897,6 @@
                                             <div class="add-cart-btn">
                                                 <input type="hidden" id="BookId" name="BookId" value="@ViewBag.Book.ID" />
                                                 <input class="btn btn-outlined--primary" type="submit" value="Đặt mua" />
-
                                             </div>
                                         </form>
                                     </div>

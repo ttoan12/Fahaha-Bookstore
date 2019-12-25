@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using WebService.Action;
-using WebService.Models;
+using WebCuaHangSach.Action;
+using WebCuaHangSach.Models;
 
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class AdminController : Controller
     {
@@ -16,6 +13,7 @@ namespace WebService.Controllers
         {
             return RedirectToAction("ListBook", "Admin");
         }
+
         [HttpGet]
         public ActionResult ListAccount()
         {
@@ -32,10 +30,10 @@ namespace WebService.Controllers
             }
             return RedirectToAction("Login", "Account");
         }
+
         [HttpPost]
         public ActionResult ListAccount(string SearchString)
         {
-
             ViewBag.ListAccount = AccountAction.Search(SearchString);
             return View();
         }
@@ -51,12 +49,12 @@ namespace WebService.Controllers
             }
             return RedirectToAction("Login", "Account");
         }
+
         [HttpPost]
         public ActionResult ListBook(string SearchString)
         {
             ViewBag.ListBook = BookAction.SearchBook(SearchString);
             return View();
-
         }
 
         [HttpGet]
@@ -70,6 +68,7 @@ namespace WebService.Controllers
             }
             return RedirectToAction("Login", "Account");
         }
+
         [HttpPost]
         public ActionResult ListLog(string SearchString)
         {
@@ -89,6 +88,7 @@ namespace WebService.Controllers
             }
             return RedirectToAction("Login", "Account");
         }
+
         [HttpGet]
         public ActionResult ListBookType()
         {

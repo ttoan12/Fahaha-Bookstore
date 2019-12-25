@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Http;
 
-namespace WebService
+namespace WebCuaHangSach
 {
     public static class WebApiConfig
     {

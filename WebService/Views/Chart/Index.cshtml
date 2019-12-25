@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = null;
 }
@@ -13,8 +12,7 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <script type="text/javascript">
-        // Load google charts
+    <script type="text/javascript">// Load google charts
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
 
@@ -28,24 +26,9 @@
             // Display the chart inside the <div> element with id="piechart"
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
-        }
-    </script>
-
+        }</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @*<!DOCTYPE html>
 
@@ -137,7 +120,6 @@
                 chart.draw(data, options);
 
             }
-
         </script>
     </body>
     </html>*@

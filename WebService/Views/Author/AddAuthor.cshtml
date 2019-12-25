@@ -2,8 +2,7 @@
     ViewBag.Title = "AddBookType";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<script type="text/javascript">
-    $(document).ready(function () {
+<script type="text/javascript">$(document).ready(function () {
         $('#table').basictable();
 
         $('#table-breakpoint').basictable({
@@ -27,10 +26,10 @@
         $('#table-max-height').basictable({
             tableWrapper: true
         });
-    });
-</script>
+    });</script>
 
 <style>
+
     input, select {
         color: gray;
     }
@@ -51,8 +50,6 @@
                     <input type="text" id="Name" name="Name" />
                 </div>
             </div>
-
-
         </div>
         <div class="form-group">
             <label class="col-md-4 control-label">Mô tả:</label>
@@ -64,12 +61,9 @@
                     <input type="text" id="Description" name="Description" />
                 </div>
             </div>
-
-
         </div>
         <div class="form-group col-lg-offset-4">
             <input class="btn btn-success" type="submit" value="Thêm Tác Gỉa">
         </div>
     </form>
 </div>
-

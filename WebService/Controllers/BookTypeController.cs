@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using WebService.Action;
+﻿using System.Web.Mvc;
+using WebCuaHangSach.Action;
 
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class BookTypeController : Controller
     {
         // GET: BookType
-        
 
         public ActionResult DeletedBookType(int ID)
         {
@@ -22,6 +17,7 @@ namespace WebService.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult AddBookType(string Name)
         {
@@ -36,9 +32,9 @@ namespace WebService.Controllers
         }
 
         [HttpPost]
-        public ActionResult ModifyBookType(int ID,string Name)
+        public ActionResult ModifyBookType(int ID, string Name)
         {
-            BookTypesAction.ModifyBookType(ID,Name);
+            BookTypesAction.ModifyBookType(ID, Name);
             return RedirectToAction("ListBookType", "Admin");
         }
     }

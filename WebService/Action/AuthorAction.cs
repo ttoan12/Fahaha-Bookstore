@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
-using WebService.Models;
+using WebCuaHangSach.Models;
 
-namespace WebService.Action
+namespace WebCuaHangSach.Action
 {
     public class AuthorAction
     {
@@ -43,7 +41,7 @@ namespace WebService.Action
 
         public static Author Author(int ID)
         {
-           Author a = null;
+            Author a = null;
             using (var db = new BookContext())
             {
                 a = db.Authors.Where(m => m.ID == ID).FirstOrDefault();
@@ -51,7 +49,7 @@ namespace WebService.Action
             return a;
         }
 
-        public static void ModifyAuthor(int ID,string Name,string Description)
+        public static void ModifyAuthor(int ID, string Name, string Description)
         {
             using (var db = new BookContext())
             {

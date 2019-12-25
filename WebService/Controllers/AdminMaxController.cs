@@ -1,31 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using WebService.Action;
-using WebService.Models;
+using WebCuaHangSach.Action;
+using WebCuaHangSach.Models;
 
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class AdminMaxController : Controller
     {
         // GET: AdminMax
         public ActionResult Add()
         {
-
             ViewBag.ListAccount = AccountAction.ListAccount();
             //AccountAction.
             return View();
         }
+
         [HttpPost]
         public ActionResult Add(string UserName, string Password, string FirstName, string LastName,
-            string Email, string PhoneNumber,int RoleID)
+            string Email, string PhoneNumber, int RoleID)
         {
             try
             {
                 ViewBag.ListAccount = AccountAction.ListAccount();
-                AccountAction.AdminAddAccount(UserName, Password, FirstName, LastName, PhoneNumber, Email,RoleID);
+                AccountAction.AdminAddAccount(UserName, Password, FirstName, LastName, PhoneNumber, Email, RoleID);
                 return RedirectToAction("Add");
             }
             catch
@@ -34,7 +31,6 @@ namespace WebService.Controllers
                 return View();
             }
         }
-
 
         [HttpGet]
         public ActionResult ListAccount()
@@ -52,10 +48,10 @@ namespace WebService.Controllers
             }
             return RedirectToAction("Login", "Account");
         }
+
         [HttpPost]
         public ActionResult ListAccount(string SearchString)
         {
-
             return View();
         }
 
@@ -73,7 +69,6 @@ namespace WebService.Controllers
         [HttpPost]
         public ActionResult Edit(int ID, string Email, string PhoneNumber, string FirstName, string LastName)
         {
-
             Account acc = AccountAction.FindAccount(ID);
             ViewBag.Message = "Nhập thông tin cần cập nhật";
             if (acc.Email != Email || acc.PhoneNumber != PhoneNumber || acc.FirstName != FirstName || acc.LastName != LastName)
@@ -85,12 +80,11 @@ namespace WebService.Controllers
             }
             ViewBag.Account = AccountAction.FindAccount(ID);
             return View();
-
         }
+
         [HttpGet]
         public ActionResult Lock(int ID)
         {
-
             if (Session["UserName"] != null && (int)Session["Role"] == 3)
             {
                 AccountAction.Lock(ID);
@@ -98,6 +92,7 @@ namespace WebService.Controllers
             }
             return RedirectToAction("Login", "Account");
         }
+
         [HttpGet]
         public ActionResult UnLock(int ID)
         {
@@ -131,9 +126,9 @@ namespace WebService.Controllers
             return RedirectToAction("Login", "Account");
         }
 
-        public ActionResult Change(int ID,int RoleID)
+        public ActionResult Change(int ID, int RoleID)
         {
-            ViewBag.Change = AccountAction.EditRole(ID,RoleID);
+            ViewBag.Change = AccountAction.EditRole(ID, RoleID);
             return RedirectToAction("ChangeRole", "AdminMax");
         }
     }

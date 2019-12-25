@@ -1,9 +1,7 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ListBook";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="~/Admin/ListBook">Admin</a><i class="fa fa-angle-right"></i>Quản lý sách</li>
@@ -33,72 +31,67 @@
                 <tbody>
                     @foreach (var book in ViewBag.ListBook)
                     {
-                        <tr>
-                            <td>@book.ID</td>
-                            <td><img src="~/Content/UploadedFiles/@book.Image" width="70" height="70" /></td>
-                            <td>@book.Name</td>
-                            <td>@book.Price</td>
-                            <td>@book.ReducePrice</td>
-                            <td>@book.Author.Name</td>
-                            <td>@book.BookType.Name</td>
-                            <td>@book.Count</td>
-                            <td>
-                                <a class="btn btn-success" href="~/Book/AddCount/@book.ID">Nhập hàng</a>
-                                <a class="btn btn-warning" href="~/Book/Edit/@book.ID">Sửa</a>
-                                <a class="bg-danger dark btn btn-hover" href="~/Book/Delete/@book.ID">Xóa </a>
-                            </td>
-                        </tr>  
+                    <tr>
+                        <td>@book.ID</td>
+                        <td><img src="~/Content/UploadedFiles/@book.Image" width="70" height="70" /></td>
+                        <td>@book.Name</td>
+                        <td>@book.Price</td>
+                        <td>@book.ReducePrice</td>
+                        <td>@book.Author.Name</td>
+                        <td>@book.BookType.Name</td>
+                        <td>@book.Count</td>
+                        <td>
+                            <a class="btn btn-success" href="~/Book/AddCount/@book.ID">Nhập hàng</a>
+                            <a class="btn btn-warning" href="~/Book/Edit/@book.ID">Sửa</a>
+                            <a class="bg-danger dark btn btn-hover" href="~/Book/Delete/@book.ID">Xóa </a>
+                        </td>
+                    </tr>
+
                     }
-                    </tbody>
+                </tbody>
             </table>
         </div>
     </div>
 </div>
 
 @*<div class="agile-grids">
-    <div class="agile-tables">
-        <div class="w3l-table-info">
+        <div class="agile-tables">
+            <div class="w3l-table-info">
 
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th>Hình</th>
-                        <th>Tên sách</th>
-                        <th>Giá</th>
-                        <th>Tác giả</th>
-                        <th>Loại sách</th>
-
-                        <th>Tồn kho</th>
-
-
-                        <th>Chức năng</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var book in ViewBag.ListBook)
-                    {
+                <table id="table">
+                    <thead>
                         <tr>
-                            <td><~/Content/Admin/template/img src="~/Content/UploadedFiles/@book.Image" width="70" height="70" /></td>
-                            <td>@book.Name</td>
-                            <td>@book.Price</td>
-                            <td>@book.Author.Name</td>
-                            <td>@book.BookType.Name</td>
-                            <td>@book.Count</td>
+                            <th>Hình</th>
+                            <th>Tên sách</th>
+                            <th>Giá</th>
+                            <th>Tác giả</th>
+                            <th>Loại sách</th>
 
+                            <th>Tồn kho</th>
 
-                            <td>
-                                <a class="btn btn-success" href="~/Book/AddCount/@book.ID">Nhập hàng</a>
-                                <a class="btn btn-warning" href="~/Book/Edit/@book.ID">Sửa</a>
-                                <a class="bg-danger dark btn btn-hover" href="~/Book/Delete/@book.ID">Xóa </a>
-                            </td>
+                            <th>Chức năng</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var book in ViewBag.ListBook)
+                        {
+                            <tr>
+                                <td><~/Content/Admin/template/img src="~/Content/UploadedFiles/@book.Image" width="70" height="70" /></td>
+                                <td>@book.Name</td>
+                                <td>@book.Price</td>
+                                <td>@book.Author.Name</td>
+                                <td>@book.BookType.Name</td>
+                                <td>@book.Count</td>
+
+                                <td>
+                                    <a class="btn btn-success" href="~/Book/AddCount/@book.ID">Nhập hàng</a>
+                                    <a class="btn btn-warning" href="~/Book/Edit/@book.ID">Sửa</a>
+                                    <a class="bg-danger dark btn btn-hover" href="~/Book/Delete/@book.ID">Xóa </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-</div>*@
-
-
-
-
+    </div>*@

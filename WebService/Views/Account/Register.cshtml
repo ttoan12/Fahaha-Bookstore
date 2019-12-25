@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Login";
 }
 
@@ -17,35 +16,28 @@
                             <div class="col-12 mb--20">
                                 <label for="password">Password</label>
                                 <input class="mb-0 form-control" type="password" name="PassWord" id="PassWord">
-
                             </div>
                             <div class="col-12 mb--20">
                                 <label for="password">Re-Password</label>
                                 <input class="mb-0 form-control" type="password" name="RePassWord" id="RePassWord">
-
                             </div>
                             <div class="col-12 mb--20">
                                 <label for="password">First Name</label>
                                 <input class="mb-0 form-control" type="text" name="FirstName" id="FirstName">
-
                             </div>
                             <div class="col-12 mb--20">
                                 <label for="password">Last Name</label>
                                 <input class="mb-0 form-control" type="text" name="LastName" id="LastName">
-
                             </div>
                             <div class="col-12 mb--20">
                                 <label for="password">Phone Number</label>
                                 <input class="mb-0 form-control" type="text" name="PhoneNumber" id="PhoneNumber">
-
                             </div>
                             <div class="col-12 mb--20">
                                 <label for="password">Email</label>
                                 <input class="mb-0 form-control" type="text" name="Email" id="Email">
-
                             </div>
                             <div class="col-md-12">
-
 
                                 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                                 <script type="text/javascript">
@@ -65,9 +57,6 @@
                                             });
 
                                     }
-
-
-
                                 </script>
                             </div>
                         </div>
@@ -138,31 +127,26 @@
                                 <i class="fa fa-user left"></i>
 
                                 Create an account
-
                             </span>
                             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
                             @if (ViewBag.Message == "Register successfully")
                             {
-                                <script type="text/javascript">
-                                    $(document).ready(function () {
+                            <script type="text/javascript">$(document).ready(function () {
                                         swal("Đăng kí thành công!", "Nhấn OK!", "success");
 
-                                    });
-                                </script>
+                                    });</script>
                             }
                             else if (ViewBag.Message == "failed")
                             {
-                                <script type="text/javascript">
-                                    $(document).ready(function () {
+                            <script type="text/javascript">$(document).ready(function () {
                                         swal("Nhập lỗi", "Vui lòng nhập lại", "error");
 
-                                    });
-                                </script>
+                                    });</script>
                             }
                         </button>
                     </div>
                 </form>
-            </div>          
+            </div>
         </div>
     </div>
 </div>

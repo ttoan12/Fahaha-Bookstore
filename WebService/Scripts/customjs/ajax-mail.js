@@ -1,5 +1,4 @@
-$(function() {
-
+$(function () {
     // Get the form.
     var form = $('#contact-form');
 
@@ -7,7 +6,7 @@ $(function() {
     var formMessages = $('.form-messege');
 
     // Set up an event listener for the contact form.
-    $(form).submit(function(e) {
+    $(form).submit(function (e) {
         // Stop the browser from submitting the form.
         e.preventDefault();
 
@@ -16,11 +15,11 @@ $(function() {
 
         // Submit the form using AJAX.
         $.ajax({
-                type: 'POST',
-                url: $(form).attr('action'),
-                data: formData
-            })
-            .done(function(response) {
+            type: 'POST',
+            url: $(form).attr('action'),
+            data: formData
+        })
+            .done(function (response) {
                 // Make sure that the formMessages div has the 'success' class.
                 $(formMessages).removeClass('error');
                 $(formMessages).addClass('success');
@@ -31,7 +30,7 @@ $(function() {
                 // Clear the form.
                 $('#contact-form input,#contact-form textarea').val('');
             })
-            .fail(function(data) {
+            .fail(function (data) {
                 // Make sure that the formMessages div has the 'error' class.
                 $(formMessages).removeClass('success');
                 $(formMessages).addClass('error');
@@ -44,10 +43,7 @@ $(function() {
                 }
             });
     });
-
 });
-
-
 
 /* 10. Mailchimp Ajax */
 
@@ -56,7 +52,7 @@ Mailchimp Ajax Submit
 jQuery Plugin
 Author: Siddharth Doshi
 */
-(function($) {
+(function ($) {
     "use strict";
     $.ajaxChimp = {
         responses: {
@@ -70,12 +66,12 @@ Author: Siddharth Doshi
         translations: {
             en: null
         },
-        init: function(selector, options) {
+        init: function (selector, options) {
             $(selector).ajaxChimp(options)
         }
     };
-    $.fn.ajaxChimp = function(options) {
-        $(this).each(function(i, elem) {
+    $.fn.ajaxChimp = function (options) {
+        $(this).each(function (i, elem) {
             var form = $(elem);
             var email = form.find("input[type=email]");
             var label = form.find("label[for=" + email.attr("id") + "]");
@@ -86,7 +82,7 @@ Author: Siddharth Doshi
             var url = settings.url.replace("/post?", "/post-json?").concat("&c=?");
             form.attr("novalidate", "true");
             email.attr("name", "EMAIL");
-            form.submit(function() {
+            form.submit(function () {
                 var msg;
 
                 function successCallback(resp) {
@@ -128,7 +124,7 @@ Author: Siddharth Doshi
                 }
                 var data = {};
                 var dataArray = form.serializeArray();
-                $.each(dataArray, function(index, item) {
+                $.each(dataArray, function (index, item) {
                     data[item.name] = item.value
                 });
                 $.ajax({
@@ -136,7 +132,7 @@ Author: Siddharth Doshi
                     data: data,
                     success: successCallback,
                     dataType: "jsonp",
-                    error: function(resp, text) {
+                    error: function (resp, text) {
                         console.log("mailchimp ajax submit error: " + text)
                     }
                 });

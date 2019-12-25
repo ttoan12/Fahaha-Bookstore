@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WebService.Models
+namespace WebCuaHangSach.Models
 {
     public class BookModel
     {
@@ -43,6 +43,7 @@ namespace WebService.Models
 
             return bookModel;
         }
+
         public static List<BookModel> Import(List<Book> books)
         {
             List<BookModel> models = new List<BookModel>();

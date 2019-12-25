@@ -16,8 +16,7 @@
     </script>
     <!--Load the AJAX API-->
 
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['corechart'] });
+    <script type="text/javascript">google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
@@ -34,11 +33,9 @@
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
             chart.draw(data, options);
-        }
-    </script>
+        }</script>
 
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['corechart'] });
+    <script type="text/javascript">google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
@@ -52,11 +49,9 @@
 
             var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
             chart.draw(data, options);
-        }
-    </script>
+        }</script>
 
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['bar'] });
+    <script type="text/javascript">google.charts.load('current', { 'packages': ['bar'] });
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
@@ -72,11 +67,9 @@
             var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
             chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
-    </script>
+        }</script>
 
-    <script type="text/javascript">
-        google.charts.load("current", { packages: ["corechart"] });
+    <script type="text/javascript">google.charts.load("current", { packages: ["corechart"] });
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
             var data = google.visualization.arrayToDataTable(data4);
@@ -84,15 +77,14 @@
             var options = {
                 title: 'Biểu lượt xem của sách',
                 pieHole: 0.4,
-                
+
                 'width': 400,
                 'height': 300
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
             chart.draw(data, options);
-        }
-    </script>
+        }</script>
 </head>
 
 <body>

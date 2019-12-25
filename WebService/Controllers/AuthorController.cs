@@ -1,31 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using WebService.Action;
+﻿using System.Web.Mvc;
+using WebCuaHangSach.Action;
 
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class AuthorController : Controller
     {
-       
-
         public ActionResult AddAuthor()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddAuthor(string Name,string Description)
+        public ActionResult AddAuthor(string Name, string Description)
         {
-            AuthorAction.AddAuthor(Name,Description);
-            return RedirectToAction("ListAuthor","Admin");
+            AuthorAction.AddAuthor(Name, Description);
+            return RedirectToAction("ListAuthor", "Admin");
         }
+
         public ActionResult DeletedAuthor(int ID)
         {
             AuthorAction.DeletedAuthor(ID);
-            return RedirectToAction("ListAuthor","Admin");
+            return RedirectToAction("ListAuthor", "Admin");
         }
 
         public ActionResult ModifyAuthor(int ID)
@@ -33,11 +28,12 @@ namespace WebService.Controllers
             ViewBag.Author = AuthorAction.Author(ID);
             return View();
         }
+
         [HttpPost]
-        public ActionResult ModifyAuthor(int ID,string Name,string Description)
+        public ActionResult ModifyAuthor(int ID, string Name, string Description)
         {
-            AuthorAction.ModifyAuthor(ID,Name,Description);
-            return RedirectToAction("ListAuthor","Admin");
+            AuthorAction.ModifyAuthor(ID, Name, Description);
+            return RedirectToAction("ListAuthor", "Admin");
         }
     }
 }

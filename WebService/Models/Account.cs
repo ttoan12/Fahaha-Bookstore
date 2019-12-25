@@ -1,10 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebService.Models
+namespace WebCuaHangSach.Models
 {
     public class Account
     {
@@ -23,6 +22,7 @@ namespace WebService.Models
 
         //Personal Infomation
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
@@ -35,9 +35,9 @@ namespace WebService.Models
 
         public bool IsLocked { get; set; }
 
-
         [NotMapped]
         public string LoginErrorMessage { get; set; }
+
         [NotMapped]
         public List<Role> RoleCollection { get; set; }
 

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebService.Models;
-using WebService.Action;
-using System.IO;
-using PagedList;
+using WebCuaHangSach.Action;
+using WebCuaHangSach.Models;
 
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class BookController : Controller
     {
@@ -26,10 +25,8 @@ namespace WebService.Controllers
             return View();
         }
 
-
         public ActionResult Edit(int ID)
         {
-            
             ViewBag.book = BookAction.FindBook(ID);
             Book book = new Book();
             using (var db = new BookContext())
@@ -39,6 +36,7 @@ namespace WebService.Controllers
             }
             return View(book);
         }
+
         [HttpPost]
         public ActionResult Edit(int ID, string Name, string PublishingCompany,
             DateTime PublishingDate, string Size, int NumberOfPages, string CoverType,
@@ -52,7 +50,6 @@ namespace WebService.Controllers
             ViewBag.book = BookAction.FindBook(ID);
             try
             {
-               
                 string _path = "";
                 if (file.ContentLength > 0)
                 {
@@ -66,23 +63,24 @@ namespace WebService.Controllers
                 return View(book);
             }
             catch
-            { 
+            {
                 ViewBag.Message = "Updated Fail!";
                 return View(book);
             }
-             
         }
-        
+
         public ActionResult ShopGrid()
         {
             ViewBag.ListBook = BookAction.ListBook();
             return View();
         }
+
         public ActionResult HomePage()
         {
             ViewBag.ListBook = BookAction.ListBook();
             return View();
         }
+
         [HttpGet]
         public ActionResult Add()
         {
@@ -94,12 +92,12 @@ namespace WebService.Controllers
             ViewBag.ListBook = BookAction.ListBook();
             return View(book);
         }
+
         [HttpPost]
         public ActionResult Add(string Name, string PublishingCompany,
             DateTime PublishingDate, string Size, int NumberOfPages, string CoverType,
             int BookTypeID, int AuthorID, double Price, HttpPostedFileBase file, int Discount)
         {
-            
             try
             {
                 string _path = "";
@@ -117,7 +115,6 @@ namespace WebService.Controllers
             {
                 return RedirectToAction("Add");
             }
-            
         }
 
         [HttpGet]
@@ -126,20 +123,22 @@ namespace WebService.Controllers
             ViewBag.Book = BookAction.FindBook(ID);
             return View();
         }
+
         [HttpPost]
         public ActionResult AddCount(int ID, int Count)
         {
             ViewBag.Book = BookAction.FindBook(ID);
-            if (BookAction.AddCount(ID,Count))
+            if (BookAction.AddCount(ID, Count))
             {
                 ViewBag.Book = BookAction.FindBook(ID);
                 return RedirectToAction("AddCount", new { ID });
             }
             return RedirectToAction("AddCount", new { ID });
         }
-        public ActionResult Detail (int ID)
+
+        public ActionResult Detail(int ID)
         {
-                Book book = BookAction.FindBook(ID);
+            Book book = BookAction.FindBook(ID);
 
             if (Session["UserName"] != null)
             {
@@ -158,19 +157,18 @@ namespace WebService.Controllers
         public ActionResult Delete(int ID)
         {
             BookAction.DeleteBook(ID);
-            return RedirectToAction("ListBook","Admin");
+            return RedirectToAction("ListBook", "Admin");
         }
 
-        
         #region Search
+
         public ActionResult Search(int? page, string Name)
         {
-            
             List<Book> a = BookAction.SearchBook(Name);
             ViewBag.l = a;
             return View();
         }
-        #endregion
+
+        #endregion Search
     }
-    
 }

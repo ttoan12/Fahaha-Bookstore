@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
 using System.Configuration;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using WebService.Action;
-using System.Net;
-using System.Net.Mail;
-using System.IO;
-using WebService.Models;
+using WebCuaHangSach.Action;
+using WebCuaHangSach.Models;
 
-using OfficeOpenXml;
-using OfficeOpenXml.Style;
-
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class CashController : Controller
     {
         #region CashManagement
+
         public ActionResult ListNotApply()
         {
             ViewBag.ListNotApply = CashAction.ListNotApply();
@@ -53,6 +48,7 @@ namespace WebService.Controllers
             ViewBag.ListPaid = CashAction.ListPaid();
             return View();
         }
+
         [HttpPost]
         public ActionResult OrderBill()
         {
@@ -77,7 +73,8 @@ namespace WebService.Controllers
             new MailHelper().SendMail(toEmail, "Đơn Đặt Hàng", content);
             return RedirectToAction("ViewCart", "Cart");
         }
-        #endregion
+
+        #endregion CashManagement
 
         public ActionResult ExportToExcel(int id)
         {
@@ -91,10 +88,6 @@ namespace WebService.Controllers
             ws.Cells["A1:D1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             //ws.Cells["A1:D1"].Style.Border.BorderAround(ExcelBorderStyle.Thin);
 
-
-
-
-
             ws.Cells["A3"].Value = "Người đặt hàng";
             ws.Cells["A3"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             // ws.Cells["A3"].Style.Border.BorderAround(ExcelBorderStyle.Thin);
@@ -107,7 +100,6 @@ namespace WebService.Controllers
             ws.Cells["A4"].Value = "Ngày đặt hàng";
             ws.Cells["A4"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             // ws.Cells["A4"].Style.Border.BorderAround(ExcelBorderStyle.Thin);
-
 
             ws.Cells["B4"].Value = string.Format("{0:dd MMMM yyyy} at {0:H: mm tt}", bill.FoundedDate);
             ws.Cells["B4:D4"].Merge = true;
@@ -134,7 +126,6 @@ namespace WebService.Controllers
             int stt = 1;
             foreach (var item in products)
             {
-
                 if (item.Count < 10)
                 {
                     //    ws.Cells[string.Format("A{0}:D{1}",rowStart,rowStart)].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
@@ -177,7 +168,6 @@ namespace WebService.Controllers
             ws.Cells[string.Format("A{0}:D{1}", rowEnd, rowEnd)].Merge = true;
             ws.Cells[string.Format("A{0}:D{1}", rowEnd, rowEnd)].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             ws.Cells[string.Format("A{0}:D{1}", rowEnd, rowEnd)].Style.Border.Top.Style = ExcelBorderStyle.DashDot;
-
 
             ws.Cells["A:AZ"].AutoFitColumns();
             Response.Clear();

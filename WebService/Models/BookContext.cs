@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace WebService.Models
+namespace WebCuaHangSach.Models
 {
     public partial class BookContext : DbContext
     {

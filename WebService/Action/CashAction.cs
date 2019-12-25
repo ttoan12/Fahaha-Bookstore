@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
-using WebService.Models;
+using System.Linq;
+using WebCuaHangSach.Models;
 
-namespace WebService.Action
+namespace WebCuaHangSach.Action
 {
     public class CashAction
     {
@@ -20,7 +18,9 @@ namespace WebService.Action
                 db.Dispose();
             }
         }
+
         #region CashManagement
+
         public static List<Bill> ListNotApply()
         {
             List<Bill> a = null;
@@ -28,7 +28,6 @@ namespace WebService.Action
             {
                 a = db.Bills.Include(x => x.Account).Where(m => m.IsApplied == false && m.IsOrdered == true &&
                 m.IsDeleted == false).ToList();
-
             }
             return a;
         }
@@ -64,7 +63,6 @@ namespace WebService.Action
             {
                 a = db.Bills.Include(x => x.Account).Where(m => m.IsApplied == true && m.IsOrdered == true &&
                m.IsPaid == false && m.IsDeleted == false).ToList();
-
             }
             return a;
         }
@@ -81,7 +79,6 @@ namespace WebService.Action
             }
         }
 
-
         public static List<Bill> ListPaid()
         {
             List<Bill> a = null;
@@ -89,10 +86,10 @@ namespace WebService.Action
             {
                 a = db.Bills.Include(x => x.Account).Where(m => m.IsApplied == true && m.IsOrdered == true &&
                m.IsPaid == true && m.IsDeleted == false).ToList();
-
             }
             return a;
         }
-        #endregion
+
+        #endregion CashManagement
     }
 }

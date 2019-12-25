@@ -1,13 +1,13 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Web.Http;
-using WebService.Models;
-using System.Data.Entity;
+using WebCuaHangSach.Models;
 
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class LoginController : ApiController
     {
-        BookContext db = new BookContext();
+        private BookContext db = new BookContext();
 
         [HttpPost]
         public IHttpActionResult Post([FromBody]LoginModel model)

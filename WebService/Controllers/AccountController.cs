@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using WebService.Action;
-using WebService.Models;
+﻿using System.Web.Mvc;
+using WebCuaHangSach.Action;
+using WebCuaHangSach.Models;
 
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class AccountController : Controller
     {
@@ -20,16 +16,16 @@ namespace WebService.Controllers
             return View();
         }
 
-
-
         #region 'Add'
+
         [HttpGet]
         public ActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult Register(string UserName, string PassWord,string RePassWord,
+        public ActionResult Register(string UserName, string PassWord, string RePassWord,
             string FirstName, string LastName, string PhoneNumber, string Email)
         {
             if (PassWord.Equals(RePassWord) && UserName != "" && PassWord != "")
@@ -48,18 +44,18 @@ namespace WebService.Controllers
 
         public ActionResult Add()
         {
-
             ViewBag.ListAccount = AccountAction.ListAccount();
             //AccountAction.
             return View();
         }
+
         [HttpPost]
-        public ActionResult Add(string UserName,string Password,string FirstName, string LastName, string Email, string PhoneNumber)
+        public ActionResult Add(string UserName, string Password, string FirstName, string LastName, string Email, string PhoneNumber)
         {
             try
             {
                 ViewBag.ListAccount = AccountAction.ListAccount();
-                AccountAction.AddAccount(UserName,Password,FirstName,LastName,PhoneNumber,Email);
+                AccountAction.AddAccount(UserName, Password, FirstName, LastName, PhoneNumber, Email);
                 return RedirectToAction("Add");
             }
             catch
@@ -72,7 +68,6 @@ namespace WebService.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-
             return View();
         }
 
@@ -80,12 +75,12 @@ namespace WebService.Controllers
         public ActionResult Login(AccountLogin acc)
         {
             Account account = AccountAction.VerifyAccount(acc.UserName, acc.Password);
-            if (account!=null)
+            if (account != null)
             {
                 Session["UserName"] = account.UserName;
                 Session["Role"] = account.RoleID;
                 Session["UserID"] = account.ID;
-                if((int)Session["Role"]==1)
+                if ((int)Session["Role"] == 1)
                 {
                     return RedirectToAction("ListBook", "Admin");
                 }
@@ -100,8 +95,8 @@ namespace WebService.Controllers
                 return RedirectToAction("Login");
             }
         }
-        #endregion
 
+        #endregion 'Add'
 
         public ActionResult DeleteAccount(int ID)
         {
@@ -124,10 +119,10 @@ namespace WebService.Controllers
             }
             return View();
         }
+
         [HttpPost]
         public ActionResult ChangePasword(string UserName, string Password, string NewPassword)
         {
-
             bool IsVerified = AccountAction.ChangePassword(UserName, Password, NewPassword);
             if (IsVerified)
             {
@@ -136,6 +131,7 @@ namespace WebService.Controllers
             ViewBag.Message = "Wrong current password";
             return View();
         }
+
         [HttpGet]
         public ActionResult Edit(int ID)
         {
@@ -146,10 +142,9 @@ namespace WebService.Controllers
         [HttpPost]
         public ActionResult Edit(int ID, string Email, string PhoneNumber, string FirstName, string LastName)
         {
-
             Account acc = AccountAction.FindAccount(ID);
             ViewBag.Message = "Nhập thông tin cần cập nhật";
-            if (acc.Email !=Email || acc.PhoneNumber!=PhoneNumber || acc.FirstName!=FirstName || acc.LastName!=LastName)
+            if (acc.Email != Email || acc.PhoneNumber != PhoneNumber || acc.FirstName != FirstName || acc.LastName != LastName)
             {
                 if (AccountAction.Edit(ID, FirstName, LastName, Email, PhoneNumber))
                 {
@@ -158,27 +153,28 @@ namespace WebService.Controllers
             }
             ViewBag.Account = AccountAction.FindAccount(ID);
             return View();
-
         }
 
         [HttpGet]
         public ActionResult Lock(int ID)
         {
             AccountAction.Lock(ID);
-            return RedirectToAction("ListAccount","Admin");
+            return RedirectToAction("ListAccount", "Admin");
         }
+
         [HttpGet]
         public ActionResult UnLock(int ID)
         {
             AccountAction.UnLock(ID);
             return RedirectToAction("ListAccount", "Admin");
         }
+
         public ActionResult LogOut()
         {
-
             Session.Abandon();
             return RedirectToAction("Login", "Account");
         }
-        #endregion
+
+        #endregion 'Modify'
     }
 }

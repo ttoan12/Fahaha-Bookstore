@@ -1,13 +1,12 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebService.Models;
+using WebCuaHangSach.Models;
 
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class ChartController : Controller
     {
@@ -27,7 +26,6 @@ namespace WebService.Controllers
                     {
                         data.Add(new ArrayList { temp[i].ID.ToString(), temp[i].TotalCost });
                     }
-
 
                     string datastr = JsonConvert.SerializeObject(data, Formatting.None);
                     ViewBag.Data = new HtmlString(datastr);
@@ -88,7 +86,7 @@ namespace WebService.Controllers
 
         public ActionResult VisualizeBillsResults()
         {
-            return Json(Result(),JsonRequestBehavior.AllowGet);
+            return Json(Result(), JsonRequestBehavior.AllowGet);
         }
 
         public List<Bill> Result()
@@ -100,8 +98,5 @@ namespace WebService.Controllers
             }
             return list;
         }
-
-
-
     }
 }

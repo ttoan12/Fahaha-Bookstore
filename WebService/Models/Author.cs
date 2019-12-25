@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebService.Models
+namespace WebCuaHangSach.Models
 {
     public class Author
     {
@@ -15,6 +15,7 @@ namespace WebService.Models
         public string Description { get; set; }
 
         public bool IsDeleted { get; set; }
+
         [JsonIgnore]
         public virtual List<Book> Books { get; set; }
     }

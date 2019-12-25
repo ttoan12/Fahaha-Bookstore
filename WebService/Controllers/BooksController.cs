@@ -8,9 +8,9 @@ using System.Net;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
-using WebService.Models;
+using WebCuaHangSach.Models;
 
-namespace WebService.Controllers
+namespace WebCuaHangSach.Controllers
 {
     public class BooksController : ApiController
     {

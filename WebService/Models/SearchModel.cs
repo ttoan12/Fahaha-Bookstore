@@ -1,4 +1,4 @@
-﻿namespace WebService.Models
+﻿namespace WebCuaHangSach.Models
 {
     public class SearchModel
     {

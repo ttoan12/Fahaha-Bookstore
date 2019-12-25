@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace WebService
+namespace WebCuaHangSach
 {
     public class RouteConfig
     {

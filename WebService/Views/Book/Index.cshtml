@@ -1,6 +1,6 @@
-﻿@using WebService.Models;
+﻿@using WebCuaHangSach.Models;
 @model List<BookType>
-    @foreach(var item in Model)
+@foreach(var item in Model)
         {
-    <li><a href="/Book/ListTrinhTham/@item.ID"> @item.Name</a></li>
+<li><a href="/Book/ListTrinhTham/@item.ID"> @item.Name</a></li>
     }

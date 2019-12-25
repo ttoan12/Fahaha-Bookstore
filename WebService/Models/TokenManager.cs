@@ -1,16 +1,14 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
-using System.Web;
 
-namespace WebService.Models
+namespace WebCuaHangSach.Models
 {
     public class TokenManager
     {
         private static string Secret = "6BD8E6BFB53E38B3644CFC2A15926A614CA7D5F4C58A55E37BD8EAE53A178BDA";
+
         public static string GenerateToken(string username)
         {
             byte[] key = Convert.FromBase64String(Secret);
@@ -28,6 +26,7 @@ namespace WebService.Models
             JwtSecurityToken token = handler.CreateJwtSecurityToken(descriptor);
             return handler.WriteToken(token);
         }
+
         public static ClaimsPrincipal GetPrincipal(string token)
         {
             try
@@ -54,6 +53,7 @@ namespace WebService.Models
                 return null;
             }
         }
+
         public static string ValidateToken(string token)
         {
             string username = null;
@@ -73,6 +73,5 @@ namespace WebService.Models
             username = usernameClaim.Value;
             return username;
         }
-
     }
 }

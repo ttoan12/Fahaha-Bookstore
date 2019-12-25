@@ -2,31 +2,37 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
-using WebService.Models;
+using WebCuaHangSach.Models;
 
-namespace WebService.Action
+namespace WebCuaHangSach.Action
 {
     public class AccountAction
     {
         #region 'Add'
 
-
         public static void AdminAddAccount(string UserName, string PassWord,
-         string FirstName, string LastName, string PhoneNumber, string Email,int RoleID)
+         string FirstName, string LastName, string PhoneNumber, string Email, int RoleID)
         {
             using (var db = new BookContext())
             {
-                var account = new Account { UserName = UserName, Password = PassWord,
-                    FirstName = FirstName, LastName = LastName, PhoneNumber = PhoneNumber,
-                    Email = Email, RoleID = RoleID, Point = 0, LastLoginDate = DateTime.Now,
-                    IsDeleted = false, IsLocked = false };
+                var account = new Account
+                {
+                    UserName = UserName,
+                    Password = PassWord,
+                    FirstName = FirstName,
+                    LastName = LastName,
+                    PhoneNumber = PhoneNumber,
+                    Email = Email,
+                    RoleID = RoleID,
+                    Point = 0,
+                    LastLoginDate = DateTime.Now,
+                    IsDeleted = false,
+                    IsLocked = false
+                };
                 db.Accounts.Add(account);
                 db.SaveChanges();
             }
         }
-
-
 
         public static void AddAccount(Account newAccount)
         {
@@ -38,7 +44,7 @@ namespace WebService.Action
             }
         }
 
-        public static void AddAccount(string UserName, string PassWord, 
+        public static void AddAccount(string UserName, string PassWord,
             string FirstName, string LastName, string PhoneNumber, string Email)
         {
             using (var db = new BookContext())
@@ -54,9 +60,18 @@ namespace WebService.Action
         {
             using (var db = new BookContext())
             {
-                var account = new Account() { FirstName=FirstName,LastName=LastName,
-                    Email =Email,PhoneNumber=PhoneNumber,IsDeleted=false,Point=0
-                    ,LastLoginDate=DateTime.Now, RoleID=2};
+                var account = new Account()
+                {
+                    FirstName = FirstName,
+                    LastName = LastName,
+                    Email = Email,
+                    PhoneNumber = PhoneNumber,
+                    IsDeleted = false,
+                    Point = 0
+                    ,
+                    LastLoginDate = DateTime.Now,
+                    RoleID = 2
+                };
                 db.Accounts.Add(account);
                 db.SaveChanges();
                 db.Dispose();
@@ -64,12 +79,12 @@ namespace WebService.Action
             }
         }
 
-        public static Account VerifyAccount(string UserName,string Password)
+        public static Account VerifyAccount(string UserName, string Password)
         {
             using (var db = new BookContext())
             {
-                Account account = db.Accounts.Where(acc => acc.UserName.Equals(UserName) && acc.Password==Password && acc.IsLocked==false ).FirstOrDefault();
-                if(account !=null && account.IsDeleted==false)
+                Account account = db.Accounts.Where(acc => acc.UserName.Equals(UserName) && acc.Password == Password && acc.IsLocked == false).FirstOrDefault();
+                if (account != null && account.IsDeleted == false)
                 {
                     return account;
                 }
@@ -77,10 +92,10 @@ namespace WebService.Action
             }
         }
 
-        #endregion
-
+        #endregion 'Add'
 
         #region'Search'
+
         public static Account FindAccount(int ID)
         {
             using (var db = new BookContext())
@@ -95,6 +110,7 @@ namespace WebService.Action
                 return null;
             }
         }
+
         public static Account FindAccount(string UserName)
         {
             using (var db = new BookContext())
@@ -109,6 +125,7 @@ namespace WebService.Action
                 return null;
             }
         }
+
         public static List<Account> FindAccountWithRole(string Role)
         {
             using (var db = new BookContext())
@@ -125,6 +142,7 @@ namespace WebService.Action
                 return null;
             }
         }
+
         public static List<Account> FindAccount(double LowerPoint, double UpperPoint)
         {
             using (var db = new BookContext())
@@ -141,7 +159,7 @@ namespace WebService.Action
         {
             using (var db = new BookContext())
             {
-                var list = db.Accounts.Include(acc =>acc.Role)
+                var list = db.Accounts.Include(acc => acc.Role)
                     .Where(acc => acc.IsDeleted == false).ToList();
                 db.Dispose();
                 return list;
@@ -153,18 +171,15 @@ namespace WebService.Action
             using (var db = new BookContext())
             {
                 var list = db.Accounts.Include(acc => acc.Role)
-                    .Where(acc => acc.IsDeleted == false && (acc.FirstName.Contains(SearchString) || acc.LastName.Contains(SearchString)|| acc.PhoneNumber.Contains(SearchString) )).ToList();
+                    .Where(acc => acc.IsDeleted == false && (acc.FirstName.Contains(SearchString) || acc.LastName.Contains(SearchString) || acc.PhoneNumber.Contains(SearchString))).ToList();
                 db.Dispose();
                 return list;
             }
         }
 
-        
         #endregion
 
-
         #region 'Modified'
-        
 
         public static bool EditRole(int ID, int Role_id)
         {
@@ -178,6 +193,7 @@ namespace WebService.Action
                 return true;
             }
         }
+
         public static bool EditAdmin(int ID, string FirstName, string LastName, string Email, string PhoneNumber, int RoleID)
         {
             using (var db = new BookContext())
@@ -194,7 +210,8 @@ namespace WebService.Action
                 return true;
             }
         }
-        public static bool Edit(int ID,string FirstName, string LastName,string Email, string PhoneNumber)
+
+        public static bool Edit(int ID, string FirstName, string LastName, string Email, string PhoneNumber)
         {
             using (var db = new BookContext())
             {
@@ -209,7 +226,8 @@ namespace WebService.Action
                 return true;
             }
         }
-        public static bool ChangePassword(string UserName , string Password, string NewPassword )
+
+        public static bool ChangePassword(string UserName, string Password, string NewPassword)
         {
             using (var db = new BookContext())
             {
@@ -232,7 +250,7 @@ namespace WebService.Action
             using (var db = new BookContext())
             {
                 var acc = db.Accounts.Find(ID);
-                acc.IsLocked = true ;
+                acc.IsLocked = true;
                 db.Entry(acc).State = EntityState.Modified;
                 db.SaveChanges();
                 db.Dispose();
@@ -255,8 +273,8 @@ namespace WebService.Action
 
         #endregion
 
-
         #region'Delete'
+
         public static void DeleteAccount(int ID)
         {
             using (var db = new BookContext())
@@ -271,7 +289,7 @@ namespace WebService.Action
                 db.Dispose();
             }
         }
-        #endregion
 
+        #endregion
     }
 }

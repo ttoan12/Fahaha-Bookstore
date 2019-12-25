@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebService.Models
+namespace WebCuaHangSach.Models
 {
     public class Role
     {

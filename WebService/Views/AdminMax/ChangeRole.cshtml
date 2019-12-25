@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ChangeRole";
     Layout = "~/Views/Shared/_AdminMaxLayout.cshtml";
 }
@@ -28,55 +27,51 @@
                 <tbody>
                     @foreach (var item in ViewBag.ListAccount)
                     {
-                        <tr>
-                            <td>@item.FirstName @item.LastName</td>
-                            <td>@item.UserName</td>
-                            <td>@item.Password</td>
-                            <td>@item.Role.Description</td>
-                            <td>
-                                <a class="btn btn-warning" href="~/AdminMax/AdminEditRole/@item.ID">Thay Đổi</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>@item.FirstName @item.LastName</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Password</td>
+                        <td>@item.Role.Description</td>
+                        <td>
+                            <a class="btn btn-warning" href="~/AdminMax/AdminEditRole/@item.ID">Thay Đổi</a>
+                        </td>
+                    </tr>
                     }
-
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-
 @*<div class="agile-grids">
-    <div class="agile-tables">
-        <div class="w3l-table-info">
-            <h2>Danh sách khách hàng</h2>
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th>Họ và tên</th>
-                        <th>Tên đăng nhập</th>
-                        <th>Mật khẩu</th>
-                        <th>Role</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in ViewBag.ListAccount)
-                    {
+        <div class="agile-tables">
+            <div class="w3l-table-info">
+                <h2>Danh sách khách hàng</h2>
+                <table id="table">
+                    <thead>
                         <tr>
-                            <td>@item.FirstName @item.LastName</td>
-                            <td>@item.UserName</td>
-                            <td>@item.Password</td>
-                            <td>@item.Role.Description</td>
-                            <td>
-                                <a class="btn btn-warning" href="~/AdminMax/AdminEditRole/@item.ID">Thay Đổi</a>
-                            </td>
+                            <th>Họ và tên</th>
+                            <th>Tên đăng nhập</th>
+                            <th>Mật khẩu</th>
+                            <th>Role</th>
+                            <th></th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.ListAccount)
+                        {
+                            <tr>
+                                <td>@item.FirstName @item.LastName</td>
+                                <td>@item.UserName</td>
+                                <td>@item.Password</td>
+                                <td>@item.Role.Description</td>
+                                <td>
+                                    <a class="btn btn-warning" href="~/AdminMax/AdminEditRole/@item.ID">Thay Đổi</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-</div>*@
-
-
+    </div>*@
